@@ -50,8 +50,8 @@ public class PlayerBasicScript : MonoBehaviour
     public TextMeshProUGUI interactionText;
 
     [Header("Ammo")]
-    public float pistolammo;
-    public float shotgunammo;
+    public int pistolammo;
+    public int shotgunammo;
 
     [Header("Shake")]
     public Transform mainCameraTransform;
@@ -169,7 +169,7 @@ public class PlayerBasicScript : MonoBehaviour
         velocity.y += Physics.gravity.y * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        /*if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             Ray ray = new Ray(camera.transform.position, camera.transform.forward);
             RaycastHit hitinfo;
@@ -195,25 +195,23 @@ public class PlayerBasicScript : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitinfo, interactionRange, Interactables))
             {
-                //InteractableObject interactableObject = hitinfo.collider.GetComponent<InteractableObject>();
-                /*if (interactableObject != null)
+                InteractableObject interactableObject = hitinfo.collider.GetComponent<InteractableObject>();
+                if (interactableObject != null)
                 {
                     interactionText.gameObject.SetActive(true);
                     interactionText.text = "F";
-                    secondaryInteractionText.gameObject.SetActive(true);
-                    secondaryInteractionText.text = "Use: " + hitinfo.collider.name;
                 }
             }
             else
             {
                 interactionText.gameObject.SetActive(false);
             }
-        */
 
 
+        }
     }
 
-    /*public int GetCurrentAmmo(int weaponID)
+    public int GetCurrentAmmo(int weaponID)
     {
         return weaponID switch
         {
@@ -221,7 +219,7 @@ public class PlayerBasicScript : MonoBehaviour
             1 => shotgunammo,      // M4
             _ => 0
         };
-    }*/
+    }
 
     public void DecreaseAmmo(int weaponID, int amount)
     {
