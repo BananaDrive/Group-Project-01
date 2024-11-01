@@ -14,6 +14,8 @@ public class InteractableObject : MonoBehaviour
     public ModelManager modelManager;
     public int modelIndexToActivate;
 
+
+
     public void Interact()
     {
         if (!isInteracted)
@@ -64,4 +66,33 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
+    public void CheckAndDisable()
+    {
+        if (isWeapon)
+        {
+            // If this object is a weapon, disable the firearm
+            if (firearm != null)
+            {
+                firearm.DisableAllWeapons();
+                Debug.Log("Disabled all weapon objects.");
+            }
+            else
+            {
+                Debug.LogError("Firearm reference is not set!");
+            }
+        }
+        else if (isObject)
+        {
+            // If this object is a regular object, disable the model
+            if (modelManager != null)
+            {
+                modelManager.DisableAllModels();
+                Debug.Log("Disabled all models.");
+            }
+            else
+            {
+                Debug.LogError("ModelManager reference is not set!");
+            }
+        }
+    }
 }

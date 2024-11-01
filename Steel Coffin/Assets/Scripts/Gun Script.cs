@@ -32,6 +32,8 @@ public class Firearm : MonoBehaviour
     public bool CanFire = true;
     public Transform camera;
 
+    public bool anyWeaponsActive;
+
 
     [Header("Weapon Objects")]
     public GameObject shot;
@@ -210,7 +212,7 @@ public class Firearm : MonoBehaviour
             weapons[weaponIndex].SetActive(true);
             weaponModels[weaponIndex].SetActive(true);
             currentWeaponIndex = weaponIndex;
-
+            anyWeaponsActive = true;
             SetupWeapon(weaponIndex);
         }
         else
@@ -250,6 +252,17 @@ public class Firearm : MonoBehaviour
         }
 
         isReloading = false;
+    }
+
+    public void DisableAllWeapons()
+    {
+        if (currentWeaponIndex >= 0)
+        {
+            weapons[currentWeaponIndex].SetActive(false);
+            weaponModels[currentWeaponIndex].SetActive(false);
+            currentWeaponIndex = -1; 
+            anyWeaponsActive = false; 
+        }
     }
 
     private IEnumerator CooldownFire()

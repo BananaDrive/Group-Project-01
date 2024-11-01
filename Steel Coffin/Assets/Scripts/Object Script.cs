@@ -5,6 +5,8 @@ public class ModelManager : MonoBehaviour
     public GameObject[] models; // Array to hold different model prefabs
     private int currentModelIndex = -1; // Default case with no model active
 
+    public bool anyModelsActive;
+
     void Start()
     {
         // Deactivate all models at the start
@@ -12,6 +14,8 @@ public class ModelManager : MonoBehaviour
         {
             model.SetActive(false);
         }
+
+        anyModelsActive = false;
     }
 
     void Update()
@@ -42,10 +46,12 @@ public class ModelManager : MonoBehaviour
         {
             models[index].SetActive(true);
             currentModelIndex = index; // Update current model index
+            anyModelsActive = true;
         }
         else
         {
             currentModelIndex = -1; // Reset to default
+            anyModelsActive = false;
         }
     }
 
@@ -70,6 +76,16 @@ public class ModelManager : MonoBehaviour
                 
                 break;
         }
+    }
+
+    public void DisableAllModels()
+    {
+        for (int i = 0; i < models.Length; i++)
+        {
+            models[i].SetActive(false);
+        }
+        currentModelIndex = -1; // Reset current model index
+        anyModelsActive = false; // Update the boolean
     }
 }
 
