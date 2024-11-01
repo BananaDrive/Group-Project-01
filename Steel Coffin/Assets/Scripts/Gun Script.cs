@@ -37,7 +37,6 @@ public class Firearm : MonoBehaviour
     public GameObject shot;
     public GameObject muzzleFlashPrefab;
     public GameObject[] casingPrefabs;
-    public bool gunshake;
     public PlayerBasicScript playerAmmo;
     public Transform gunTransform;
 
@@ -51,9 +50,6 @@ public class Firearm : MonoBehaviour
     public bool[] weaponUnlocked;
 
 
-    [Header("Shake")]
-    public float gunShakeIntensity = 2f;
-    public float shakeDuration = 0.5f;
 
     [Header("Weapon Locational Data")]
     public GameObject[] bulletInstantiators;
@@ -107,7 +103,7 @@ public class Firearm : MonoBehaviour
             ammoText.gameObject.SetActive(false);
         }
 
-        /*if (Input.GetMouseButton(0) && currentAmmo > 0 && CanFire && !isReloading1)
+        if (Input.GetMouseButton(0) && currentAmmo > 0 && CanFire)
         {
             if (currentClip > 0)
             {
@@ -119,7 +115,7 @@ public class Firearm : MonoBehaviour
                 StartCoroutine(ReloadCoroutine());
             }
 
-        }*/
+        }
     }
 
     public void SetupWeapon(int id)
@@ -128,7 +124,7 @@ public class Firearm : MonoBehaviour
         {
             case 0 when useWeapon0: // pistol
                 weaponID = 0;
-                shotVel = 300f;
+                shotVel = 50f;
                 fireMode = 0;
                 fireRate = 0.5f;
                 currentClip = 7;
@@ -165,14 +161,11 @@ public class Firearm : MonoBehaviour
         if (Time.timeScale == 1)
         {
             GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, gunTransform.position, gunTransform.rotation);
-            gunshake = true;
-            StartCoroutine(camshake());
 
             Transform cameraTransform = Camera.main.transform;
             float intensity = 2f;
             float duration = 0.5f;
 
-            playerAmmo.TriggerShake(cameraTransform, intensity, duration);
 
             GameObject bulletInstantiator = bulletInstantiators[weaponID];
             GameObject projectile = Instantiate(shot, bulletInstantiator.transform.position, bulletInstantiator.transform.rotation);
@@ -243,9 +236,9 @@ public class Firearm : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         int reloadCount = clipSize - currentClip;
-        //int availableAmmo = playerAmmo.GetCurrentAmmo(weaponID);
+        int availableAmmo = playerAmmo.GetCurrentAmmo(weaponID);
 
-        /*if (availableAmmo < reloadCount)
+        if (availableAmmo < reloadCount)
         {
             currentClip += availableAmmo;
             playerAmmo.DecreaseAmmo(weaponID, availableAmmo);
@@ -254,7 +247,7 @@ public class Firearm : MonoBehaviour
         {
             currentClip += reloadCount;
             playerAmmo.DecreaseAmmo(weaponID, reloadCount);
-        }*/
+        }
 
         isReloading = false;
     }
@@ -272,11 +265,7 @@ public class Firearm : MonoBehaviour
 
 
 
-    private IEnumerator camshake()
-    {
-        yield return new WaitForSeconds(.2f);
-        gunshake = false;
-    }
+   
 
 
 

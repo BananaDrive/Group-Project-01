@@ -53,16 +53,6 @@ public class PlayerBasicScript : MonoBehaviour
     public int pistolammo;
     public int shotgunammo;
 
-    [Header("Shake")]
-    public Transform mainCameraTransform;
-    public Transform secondaryCameraTransform;
-    public float gunShakeIntensity = 0.5f;
-    public float shakeDuration = 0.1f;
-    private Vector3 originalMainCameraPosition;
-    private Quaternion originalMainCameraRotation;
-    private Vector3 originalSecondaryCameraPosition;
-    private Quaternion originalSecondaryCameraRotation;
-    private Coroutine currentShakeRoutine;
 
 
     [Header("Guns")]
@@ -71,11 +61,7 @@ public class PlayerBasicScript : MonoBehaviour
     void Start()
     {
 
-        originalMainCameraPosition = mainCameraTransform.localPosition;
-        originalMainCameraRotation = mainCameraTransform.localRotation;
-        originalSecondaryCameraPosition = secondaryCameraTransform.localPosition;
-        originalSecondaryCameraRotation = secondaryCameraTransform.localRotation;
-
+       
         controller = GetComponent<CharacterController>();
         originalHeight = controller.height;
         Cursor.lockState = CursorLockMode.Locked;
@@ -234,42 +220,9 @@ public class PlayerBasicScript : MonoBehaviour
         }
     }
 
-    public void TriggerShake(Transform cameraTransform, float intensity, float duration)
-    {
-        if (currentShakeRoutine != null) StopCoroutine(currentShakeRoutine);
-        currentShakeRoutine = StartCoroutine(Shake(cameraTransform, intensity, duration));
-    }
+    
 
-    private IEnumerator Shake(Transform cameraTransform, float intensity, float duration)
-    {
-        float elapsed = 0f;
-
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            Vector3 randomOffset = Random.insideUnitSphere * intensity;
-            cameraTransform.localPosition = (cameraTransform == mainCameraTransform) ?
-                originalMainCameraPosition + randomOffset :
-                originalSecondaryCameraPosition + randomOffset;
-            yield return null;
-        }
-
-        ResetShake(cameraTransform);
-    }
-
-    private void ResetShake(Transform cameraTransform)
-    {
-        if (cameraTransform == mainCameraTransform)
-        {
-            cameraTransform.localPosition = originalMainCameraPosition;
-            cameraTransform.localRotation = originalMainCameraRotation;
-        }
-        else if (cameraTransform == secondaryCameraTransform)
-        {
-            cameraTransform.localPosition = originalSecondaryCameraPosition;
-            cameraTransform.localRotation = originalSecondaryCameraRotation;
-        }
-    }
+   
 
     private void StartADS()
     {

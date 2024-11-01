@@ -11,6 +11,9 @@ public class InteractableObject : MonoBehaviour
     public Firearm firearm;
     public int weaponIndexToUnlock;
 
+    public ModelManager modelManager;
+    public int modelIndexToActivate;
+
     public void Interact()
     {
         if (!isInteracted)
@@ -22,7 +25,7 @@ public class InteractableObject : MonoBehaviour
 
             if (isObject)
             {
-
+                ActivateModel();
             }
 
             isInteracted = true;
@@ -45,6 +48,19 @@ public class InteractableObject : MonoBehaviour
         else
         {
             Debug.LogError("Firearm reference is not set!");
+        }
+    }
+
+    private void ActivateModel()
+    {
+        if (modelManager != null)
+        {
+            modelManager.ActivateModel(modelIndexToActivate);
+            Debug.Log($"Activated model at index: {modelIndexToActivate}");
+        }
+        else
+        {
+            Debug.LogError("ModelManager reference is not set!");
         }
     }
 
