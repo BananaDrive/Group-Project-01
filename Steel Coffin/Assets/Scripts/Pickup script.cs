@@ -14,12 +14,12 @@ public class InteractableObject : MonoBehaviour
     public ModelManager modelManager;
     public int modelIndexToActivate;
 
-
-
     public void Interact()
     {
         if (!isInteracted)
         {
+            ItemManager.Instance.SetActiveItem(this);
+
             if (isWeapon)
             {
                 UnlockWeapon();
@@ -31,7 +31,6 @@ public class InteractableObject : MonoBehaviour
             }
 
             isInteracted = true;
-            
         }
         else
         {
@@ -70,7 +69,6 @@ public class InteractableObject : MonoBehaviour
     {
         if (isWeapon)
         {
-            // If this object is a weapon, disable the firearm
             if (firearm != null)
             {
                 firearm.DisableAllWeapons();
@@ -83,7 +81,6 @@ public class InteractableObject : MonoBehaviour
         }
         else if (isObject)
         {
-            // If this object is a regular object, disable the model
             if (modelManager != null)
             {
                 modelManager.DisableAllModels();
