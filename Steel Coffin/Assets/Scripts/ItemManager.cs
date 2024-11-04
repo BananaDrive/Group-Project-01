@@ -6,8 +6,6 @@ public class ItemManager : MonoBehaviour
 
     private InteractableObject currentActiveItem;
 
-
-
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -18,35 +16,9 @@ public class ItemManager : MonoBehaviour
     {
         if (currentActiveItem != null && currentActiveItem != newItem)
         {
-            currentActiveItem.CheckAndDisable();
+            currentActiveItem.CheckAndDisable(); // Disable the previously active item
         }
 
         currentActiveItem = newItem;
     }
-
-    public void Interact()
-    {
-        if (!isInteracted)
-        {
-            ItemManager.Instance.SetActiveItem(this);
-
-            if (isWeapon)
-            {
-                UnlockWeapon();
-            }
-
-            if (isObject)
-            {
-                ActivateModel();
-            }
-
-            isInteracted = true;
-        }
-
-        else
-        {
-            Debug.Log("Already interacted with: " + gameObject.name);
-        }
-    }
-
 }

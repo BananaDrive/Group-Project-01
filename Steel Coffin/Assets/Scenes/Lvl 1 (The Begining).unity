@@ -190,6 +190,7 @@ MonoBehaviour:
   models:
   - {fileID: 214932962}
   - {fileID: 397326000}
+  anyModelsActive: 0
 --- !u!1 &214932962
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,16 +329,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 271039333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c782b9006cfe0da419914bfa16eb4450, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a05f337a31973f4da3837d0d1908fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isInteracted: 0
   isWeapon: 0
   isObject: 1
-  firearm: {fileID: 978748315}
+  firearm: {fileID: 0}
   weaponIndexToUnlock: 0
-  modelManager: {fileID: 105094636}
-  modelIndexToActivate: 1
+  modelManager: {fileID: 0}
+  modelIndexToActivate: 0
 --- !u!54 &271039335
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -807,15 +808,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 476633420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c782b9006cfe0da419914bfa16eb4450, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a05f337a31973f4da3837d0d1908fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isInteracted: 0
   isWeapon: 0
   isObject: 1
-  firearm: {fileID: 978748315}
+  firearm: {fileID: 0}
   weaponIndexToUnlock: 0
-  modelManager: {fileID: 105094636}
+  modelManager: {fileID: 0}
   modelIndexToActivate: 0
 --- !u!1 &569062803
 GameObject:
@@ -1439,6 +1440,7 @@ MonoBehaviour:
   useWeapon5: 0
   CanFire: 1
   camera: {fileID: 1820323546}
+  anyWeaponsActive: 0
   shot: {fileID: 3692154624975095233, guid: 0e87dc5ffe0e19d4eb1d9d17c4bf5ad6, type: 3}
   muzzleFlashPrefab: {fileID: 3071323364900779509, guid: c683c49ecb3fb5243bc202f324f3559e, type: 3}
   casingPrefabs:
@@ -2228,7 +2230,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712254519}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1712254522
 Camera:
   m_ObjectHideFlags: 0
@@ -2636,13 +2638,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2033857047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c782b9006cfe0da419914bfa16eb4450, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a05f337a31973f4da3837d0d1908fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isInteracted: 0
   isWeapon: 1
   isObject: 0
-  firearm: {fileID: 978748315}
+  firearm: {fileID: 0}
   weaponIndexToUnlock: 0
   modelManager: {fileID: 0}
   modelIndexToActivate: 0

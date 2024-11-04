@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public bool IsPaused = false; // Pause variable
 
     // ItemManager Variables
-    public static ItemManager Instance;
+    public static GameManager Instance;
 
     private InteractableObject currentActiveItem;
 
@@ -42,4 +42,4 @@ public class GameManager : MonoBehaviour
         currentActiveItem = newItem;
     }
 }
-}
+
