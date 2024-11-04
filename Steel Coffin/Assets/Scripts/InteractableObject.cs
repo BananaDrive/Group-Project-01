@@ -36,11 +36,6 @@ public class InteractableObject : MonoBehaviour
                 UnlockWeapon();
             }
 
-            if (isObject)
-            {
-                ActivateModel();
-            }
-
             isInteracted = true; // Mark as interacted
         }
         else
@@ -63,18 +58,6 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    private void ActivateModel()
-    {
-        if (modelManager != null)
-        {
-            modelManager.ActivateModel(modelIndexToActivate);
-            Debug.Log($"Activated model at index: {modelIndexToActivate}");
-        }
-        else
-        {
-            Debug.LogError("ModelManager reference is not set!");
-        }
-    }
 
     public void CheckAndDisable()
     {
