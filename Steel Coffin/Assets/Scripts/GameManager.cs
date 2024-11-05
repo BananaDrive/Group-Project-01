@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviour
     // ItemManager Variables
     public static GameManager Instance;
 
-    private InteractableObject currentActiveItem;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() 
     {
@@ -33,21 +31,7 @@ public class GameManager : MonoBehaviour
     }
 
     // ItemManager Script Pieces
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-    }
 
-    public void SetActiveItem(InteractableObject newItem)
-    {
-        if (currentActiveItem != null && currentActiveItem != newItem)
-        {
-            currentActiveItem.CheckAndDisable();
-        }
-
-        currentActiveItem = newItem;
-    }
 
     public void PauseScreen()
     {
