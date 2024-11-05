@@ -30,10 +30,23 @@ Material:
     - _CloudAlpha: 8.63
     - _Cloud_Scale: 120
     - _DistortScale: 60
-    - _Power: 3.12
+    - _Power: 1.71
     m_Colors:
     - _CloudColor: {r: 1, g: 1, b: 1, a: 1}
-    - _DistortSpeed: {r: 0, g: 0, b: 0, a: 0}
-    - _Speed: {r: -0.005, g: 0, b: 0, a: 0}
+    - _DistortSpeed: {r: -0.005, g: 0, b: 0, a: 0}
+    - _Speed: {r: -0.001, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!114 &5931985449827303708
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 0
