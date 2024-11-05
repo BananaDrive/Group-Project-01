@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PlayerBasicScript : MonoBehaviour
 {
 
+    GameManager Gm;  //Reference to GameManager Script
+
     [Header("Speed")]
     public float speed = 5f;
     public float jumpHeight = 2f;
@@ -61,7 +63,7 @@ public class PlayerBasicScript : MonoBehaviour
     void Start()
     {
 
-       
+        Gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         controller = GetComponent<CharacterController>();
         originalHeight = controller.height;
         Cursor.lockState = CursorLockMode.Locked;
@@ -70,130 +72,133 @@ public class PlayerBasicScript : MonoBehaviour
 
     void Update()
     {
-        if (controller == null) return;
-
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-
-        verticalRotation -= mouseY;
-        verticalRotation = Mathf.Clamp(verticalRotation, -90f, 90f);
-
-        transform.Rotate(0, mouseX, 0);
-        camera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
-
-        isGrounded = controller.isGrounded;
-
-        if (isGrounded && velocity.y < 0)
+        if (!Gm.IsPaused)
         {
-            velocity.y = -2f;
-        }
+            if (controller == null) return;
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            StartADS();
-        }
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        if (Input.GetMouseButtonUp(1))
-        {
-            StopADS();
-        }
+            verticalRotation -= mouseY;
+            verticalRotation = Mathf.Clamp(verticalRotation, -90f, 90f);
+
+            transform.Rotate(0, mouseX, 0);
+            camera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
 
 
-        if (isAiming)
-        {
-            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, zoomFOV, 0.1f);
-            gunTransform.localPosition = Vector3.Lerp(gunTransform.localPosition, gunADSPosition, 0.1f);
-        }
-        else
-        {
-            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, normalFOV, 0.1f);
-            gunTransform.localPosition = Vector3.Lerp(gunTransform.localPosition, gunNormalPosition, 0.1f);
-        }
+            isGrounded = controller.isGrounded;
 
-
-
-
-        if (Input.GetKey(KeyCode.Q))
-        {
-            targetLean = leanAmount;
-            targetLean1 = -leanAmount1;
-        }
-        else if (Input.GetKey(KeyCode.E))
-        {
-            targetLean = -leanAmount;
-            targetLean1 = leanAmount1;
-        }
-        else
-        {
-            targetLean = 0f;
-            targetLean1 = 0f;
-        }
-
-        cameraParent.localPosition = new Vector3(targetLean1, cameraParent.localPosition.y, cameraParent.localPosition.z);
-
-
-        currentLean = Mathf.Lerp(currentLean, targetLean, Time.deltaTime * leanSpeed);
-        camera.transform.localRotation = Quaternion.Euler(camera.transform.localRotation.eulerAngles.x, camera.transform.localRotation.eulerAngles.y, currentLean);
-
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            float jumpForce = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
-            velocity.y = jumpForce;
-        }
-
-        
-
-        transform.localPosition = Vector3.Slerp(transform.localPosition, targetPosition, Time.deltaTime * CrouchSpeed);
-
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
-        controller.Move(move * speed * Time.deltaTime);
-
-        velocity.y += Physics.gravity.y * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Ray ray = new Ray(camera.transform.position, camera.transform.forward);
-            RaycastHit hitinfo;
-
-            if (Physics.Raycast(ray, out hitinfo, interactionRange, Interactables))
+            if (isGrounded && velocity.y < 0)
             {
-                InteractableObject interactableObject = hitinfo.collider.GetComponent<InteractableObject>();
-                if (interactableObject != null)
+                velocity.y = -2f;
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                StartADS();
+            }
+
+            if (Input.GetMouseButtonUp(1))
+            {
+                StopADS();
+            }
+
+
+            if (isAiming)
+            {
+                camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, zoomFOV, 0.1f);
+                gunTransform.localPosition = Vector3.Lerp(gunTransform.localPosition, gunADSPosition, 0.1f);
+            }
+            else
+            {
+                camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, normalFOV, 0.1f);
+                gunTransform.localPosition = Vector3.Lerp(gunTransform.localPosition, gunNormalPosition, 0.1f);
+            }
+
+
+
+
+            if (Input.GetKey(KeyCode.Q))
+            {
+                targetLean = leanAmount;
+                targetLean1 = -leanAmount1;
+            }
+            else if (Input.GetKey(KeyCode.E))
+            {
+                targetLean = -leanAmount;
+                targetLean1 = leanAmount1;
+            }
+            else
+            {
+                targetLean = 0f;
+                targetLean1 = 0f;
+            }
+
+            cameraParent.localPosition = new Vector3(targetLean1, cameraParent.localPosition.y, cameraParent.localPosition.z);
+
+
+            currentLean = Mathf.Lerp(currentLean, targetLean, Time.deltaTime * leanSpeed);
+            camera.transform.localRotation = Quaternion.Euler(camera.transform.localRotation.eulerAngles.x, camera.transform.localRotation.eulerAngles.y, currentLean);
+
+
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            {
+                float jumpForce = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
+                velocity.y = jumpForce;
+            }
+
+
+
+            transform.localPosition = Vector3.Slerp(transform.localPosition, targetPosition, Time.deltaTime * CrouchSpeed);
+
+            float moveX = Input.GetAxis("Horizontal");
+            float moveZ = Input.GetAxis("Vertical");
+
+            Vector3 move = transform.right * moveX + transform.forward * moveZ;
+            controller.Move(move * speed * Time.deltaTime);
+
+            velocity.y += Physics.gravity.y * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Ray ray = new Ray(camera.transform.position, camera.transform.forward);
+                RaycastHit hitinfo;
+
+                if (Physics.Raycast(ray, out hitinfo, interactionRange, Interactables))
                 {
-                    interactableObject.Interact();
+                    InteractableObject interactableObject = hitinfo.collider.GetComponent<InteractableObject>();
+                    if (interactableObject != null)
+                    {
+                        interactableObject.Interact();
+                        interactionText.gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
                     interactionText.gameObject.SetActive(false);
                 }
             }
             else
             {
-                interactionText.gameObject.SetActive(false);
-            }
-        }
-        else
-        {
-            Ray ray = new Ray(camera.transform.position, camera.transform.forward);
-            RaycastHit hitinfo;
+                Ray ray = new Ray(camera.transform.position, camera.transform.forward);
+                RaycastHit hitinfo;
 
-            if (Physics.Raycast(ray, out hitinfo, interactionRange, Interactables))
-            {
-                InteractableObject interactableObject = hitinfo.collider.GetComponent<InteractableObject>();
-                if (interactableObject != null)
+                if (Physics.Raycast(ray, out hitinfo, interactionRange, Interactables))
                 {
-                    interactionText.gameObject.SetActive(true);
-                    interactionText.text = "F";
+                    InteractableObject interactableObject = hitinfo.collider.GetComponent<InteractableObject>();
+                    if (interactableObject != null)
+                    {
+                        interactionText.gameObject.SetActive(true);
+                        interactionText.text = "F";
+                    }
                 }
-            }
-            else
-            {
-                interactionText.gameObject.SetActive(false);
-            }
+                else
+                {
+                    interactionText.gameObject.SetActive(false);
+                }
 
-
+            }
         }
     }
 
