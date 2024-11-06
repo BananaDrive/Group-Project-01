@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,13 +26,13 @@ public class PlayerBasicScript : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 castPos = transform.position;
-        castPos.y += 1;
-        if (Physics.Raycast(castPos, -transform.up, out hit, Mathf.Infinity, terrain))
+        castPos.y += 2;
+        if (Physics.Raycast(castPos, Vector3.down, out hit, Mathf.Infinity, terrain))
         {
             if (hit.collider != null)
             {
                 Vector3 movePos = transform.position;
-                movePos.y = hit.point.y + Distance;
+                movePos.y = hit.point.y;
                 transform.position = movePos;
             }
         }
@@ -39,16 +40,12 @@ public class PlayerBasicScript : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         Vector3 moveDir = new Vector3(x, 0, y);
-        Rb.angularVelocity = moveDir * WalkSpeed;
 
-        if (x != 0 && x < 0)
-        {
-            Sr.flipX = true;
-        }
+        Rb.linearVelocity = new Vector3(moveDir.x * WalkSpeed, Rb.linearVelocity.y, moveDir.z * WalkSpeed);
 
-        else if (x != 0 && x > 0)
+        if (x != 0)
         {
-            Sr.flipX = false;
+            Sr.flipX = x < 0;
         }
     }
 }
