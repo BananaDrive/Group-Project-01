@@ -25,15 +25,21 @@ public class Player : MonoBehaviour
         input.Normalize();
 
         Rib.linearVelocity = new Vector3(input.x * walk, Rib.linearVelocity.y, input.y * walk);
+        
 
         RaycastHit hit;
-        if (Physics.Raycast(GroundPoint.position, Vector3.down, out hit, .3f, Ground))
+        if (Physics.Raycast(GroundPoint.position, Vector3.down, out hit, .55f, Ground))
         {
             OnGround = true;
         }
         else
         {
             OnGround = false;
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            Rib.AddForce(Vector3.up * jump, ForceMode.Impulse);
         }
     }
 }
