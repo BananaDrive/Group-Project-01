@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     private Vector2 input;
 
-    public LayerMask Ground;
+    public LayerMask Terrain;
     public Transform GroundPoint;
     public bool OnGround;
 
@@ -26,20 +26,5 @@ public class Player : MonoBehaviour
 
         Rib.linearVelocity = new Vector3(input.x * walk, Rib.linearVelocity.y, input.y * walk);
         
-
-        RaycastHit hit;
-        if (Physics.Raycast(GroundPoint.position, Vector3.down, out hit, .55f, Ground))
-        {
-            OnGround = true;
-        }
-        else
-        {
-            OnGround = false;
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            Rib.AddForce(Vector3.up * jump, ForceMode.Impulse);
-        }
     }
 }
