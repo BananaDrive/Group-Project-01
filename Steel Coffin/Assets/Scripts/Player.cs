@@ -10,21 +10,79 @@ public class Player : MonoBehaviour
     public LayerMask Terrain;
     public Transform GroundPoint;
     public bool OnGround;
+    public bool Hidden = false;
+    public GameObject[] HideObject;
+    public float HideingRange = 10f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private Collider currentHideObject = null;
+    private int OGLayer;
+    private bool canHide = false;
+
+
     void Start()
     {
+        OGLayer = gameObject.layer;
+    }
+
+
+    void Update()
+    {
+        if (!Hidden)
+        {
+            input.x = Input.GetAxis("Horizontal");
+            input.y = Input.GetAxis("Vertical");
+            input.Normalize();
+
+            Rib.linearVelocity = new Vector3(input.x * walk, Rib.linearVelocity.y, input.y * walk);
+        }
+
+            if (Input.GetKey(KeyCode.F) && canHide && currentHideObject != null)
+            {
+                ToggleHide();
+            }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ToggleHide()
     {
-        input.x = Input.GetAxis("Horizontal");
-        input.y = Input.GetAxis("Vertical");
-        input.Normalize();
+        Hidden = !Hidden;
 
-        Rib.linearVelocity = new Vector3(input.x * walk, Rib.linearVelocity.y, input.y * walk);
-        
+        if (Hidden)
+        {
+            gameObject.layer = LayerMask.NameToLayer("Invisible");
+            GetComponent<Renderer>().enabled = false;
+        }
+        else
+        {
+            gameObject.layer = OGLayer;
+            GetComponent<Renderer>().enabled = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        foreach(GameObject hideObj in HideObject)
+        {
+            if (other.gameObject == hideObj)
+            {
+                currentHideObject = other;
+
+                if (Vector3.Distance(transform.position, hideObj.transform.position) <= HideingRange)
+                {
+                    canHide = true;
+                }
+                return;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other == currentHideObject)
+        {
+            currentHideObject = null;
+            canHide = false;
+        }
     }
 }
