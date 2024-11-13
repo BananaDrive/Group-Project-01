@@ -1,4 +1,10 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +19,7 @@ public class Player : MonoBehaviour
     public bool Hidden = false;
     public GameObject[] HideObject;
     public float HideingRange = 10f;
+    public float HideWait = 1f;
 
 
     private Collider currentHideObject = null;
@@ -37,7 +44,7 @@ public class Player : MonoBehaviour
             Rib.linearVelocity = new Vector3(input.x * walk, Rib.linearVelocity.y, input.y * walk);
         }
 
-            if (Input.GetKey(KeyCode.F) && canHide && currentHideObject != null)
+            if (Input.GetKeyDown(KeyCode.F) && canHide && currentHideObject != null)
             {
                 ToggleHide();
             }
@@ -52,6 +59,14 @@ public class Player : MonoBehaviour
         {
             gameObject.layer = LayerMask.NameToLayer("Invisible");
             GetComponent<Renderer>().enabled = false;
+
+            if (currentHideObject != null)
+            {
+                transform.position = currentHideObject.bounds.center;
+            }
+
+            Rib.linearVelocity = Vector3.zero;
+            Rib.angularVelocity = Vector3.zero;
         }
         else
         {
@@ -71,9 +86,12 @@ public class Player : MonoBehaviour
                 if (Vector3.Distance(transform.position, hideObj.transform.position) <= HideingRange)
                 {
                     canHide = true;
+  
                 }
                 return;
             }
+
+            
         }
     }
 
@@ -83,6 +101,7 @@ public class Player : MonoBehaviour
         {
             currentHideObject = null;
             canHide = false;
+;
         }
     }
 }
