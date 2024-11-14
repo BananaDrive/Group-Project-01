@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 {
     public bool IsPaused = false; // Pause variable
 
+    public bool ismenu;
+
     public GameObject PauseMenu;
 
     // ItemManager Variables
@@ -26,7 +28,10 @@ public class GameManager : MonoBehaviour
     { 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseScreen();
+            if (!ismenu)
+            {
+                PauseScreen();
+            }
         }
     }
 
