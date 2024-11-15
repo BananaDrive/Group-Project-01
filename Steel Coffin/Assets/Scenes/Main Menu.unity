@@ -17616,7 +17616,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 736479693}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1920043696}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Settings1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &736479693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33004,7 +33016,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1458801316}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1920043696}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1458801316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42943,6 +42967,12 @@ MonoBehaviour:
   IsPaused: 0
   ismenu: 1
   PauseMenu: {fileID: 698342430}
+  Quit: {fileID: 1458801313}
+  Play: {fileID: 1988665225}
+  Settings: {fileID: 736479690}
+  SettingsOpen: 0
+  NewGame: {fileID: 2041441798}
+  LoadGame: {fileID: 260831434}
 --- !u!4 &1920043697
 Transform:
   m_ObjectHideFlags: 0
@@ -45637,7 +45667,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2041441801}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1920043696}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Newgame
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2041441801
 MonoBehaviour:
   m_ObjectHideFlags: 0

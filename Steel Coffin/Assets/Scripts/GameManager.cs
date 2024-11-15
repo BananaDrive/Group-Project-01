@@ -14,6 +14,17 @@ public class GameManager : MonoBehaviour
 
     public GameObject PauseMenu;
 
+    public GameObject Quit;
+
+    public GameObject Play;
+
+    public GameObject Settings;
+    public bool SettingsOpen = false;
+
+    public GameObject NewGame;
+
+    public GameObject LoadGame;
+
     // ItemManager Variables
     public static GameManager Instance;
 
@@ -21,6 +32,8 @@ public class GameManager : MonoBehaviour
     void Start() 
     {
     
+        
+
     }
 
     // Update is called once per frame
@@ -69,5 +82,46 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    public void Newgame(int sceneID)
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(sceneID);
+    }
+
+    public void Settings1()
+    {
+        if (SettingsOpen)
+        {
+           Settings.SetActive(false);
+           SettingsOpen = false;
+           Cursor.visible = false;
+           Cursor.lockState = CursorLockMode.Locked;
+           Time.timeScale = 1;
+        }
+        else
+        {
+            Settings.SetActive(true);
+            SettingsOpen = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
+        }
+    }
+
+    public void LoadNextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+    }
 }
 
