@@ -10,6 +10,7 @@ public class EnemyMove : MonoBehaviour
     public float vision = 50f;
     public float roamRadius = 20f;
     public float searchRoamTime = 10f;
+    public float waitTimeAtPoint = 3f; 
     public Vector3 roamCenter;
 
     public Transform player;
@@ -22,17 +23,22 @@ public class EnemyMove : MonoBehaviour
     private Vector3 roamPoint;
     private float searchTimer;
     private bool isSearching;
+    private bool isWaiting;
+    private float waitTimer;
+
     void Start()
     {
         playerScript = GameObject.Find("player").GetComponent<Player>();
         Ai = GetComponent<NavMeshAgent>();
         isSearching = false;
+        isWaiting = false;
         searchTimer = searchRoamTime;
+        waitTimer = waitTimeAtPoint;
     }
 
     void Update()
     {
-        float DistanceToPlayer = Vector3.Distance(transform.position, player.position);
+        DistanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         if (DistanceToPlayer <= vision && HasLineOfSight())
         {
@@ -52,9 +58,7 @@ public class EnemyMove : MonoBehaviour
         }
 
         Debug.DrawLine(transform.position, Ai.destination, Color.red);
-
         Debug.Log($"Roam Center: {roamCenter}");
-
     }
 
     bool HasLineOfSight()
@@ -66,7 +70,6 @@ public class EnemyMove : MonoBehaviour
         {
             return Hit.transform == player;
         }
-
         return true;
     }
 
@@ -74,10 +77,23 @@ public class EnemyMove : MonoBehaviour
     {
         Debug.Log("Attempting to roam last seen position");
 
-        if (Vector3.Distance(transform.position, roamPoint) < 10f || Ai.isStopped)
+        if (Vector3.Distance(transform.position, roamPoint) < 1.5f || Ai.isStopped)
         {
-            Debug.Log("Setting new roam point near last seen position");
-            SetRandomRoamPoint(lastSeenPosition);
+            if (!isWaiting)
+            {
+                isWaiting = true;
+                waitTimer = waitTimeAtPoint;
+            }
+
+            if (isWaiting)
+            {
+                waitTimer -= Time.deltaTime;
+                if (waitTimer <= 0)
+                {
+                    SetRandomRoamPoint(lastSeenPosition);
+                    isWaiting = false;
+                }
+            }
         }
         Ai.destination = roamPoint;
 
@@ -92,10 +108,23 @@ public class EnemyMove : MonoBehaviour
     {
         Debug.Log("Attempting to roam around static center");
 
-        if (Vector3.Distance(transform.position, roamPoint) < 10f || Ai.isStopped)
+        if (Vector3.Distance(transform.position, roamPoint) < 1.5f || Ai.isStopped)
         {
-            Debug.Log("Setting new roam point near static center");
-            SetRandomRoamPoint(roamCenter);
+            if (!isWaiting)
+            {
+                isWaiting = true;
+                waitTimer = waitTimeAtPoint;
+            }
+
+            if (isWaiting)
+            {
+                waitTimer -= Time.deltaTime;
+                if (waitTimer <= 0)
+                {
+                    isWaiting = false;
+                    SetRandomRoamPoint(roamCenter);
+                }
+            }
         }
         Ai.isStopped = false;
         Ai.destination = roamPoint;
@@ -112,16 +141,13 @@ public class EnemyMove : MonoBehaviour
             if (NavMesh.SamplePosition(randomDirection, out NavMeshHit navHit, roamRadius, NavMesh.AllAreas))
             {
                 roamPoint = navHit.position;
-                //Debug.Log($"Found Roam Point: {roamPoint}");
-                return; // Exit the function if a valid point is found
-            }
-            else
-            {
-                //Debug.LogWarning($"Failed to find a roam point near {randomDirection}");
+                Debug.Log($"Found Roam Point: {roamPoint}");
+                return;
             }
         }
-        //Debug.LogWarning("Unable to find a roam point after multiple attempts.");
+        Debug.LogWarning("Unable to find a roam point after multiple attempts.");
     }
+
     private void OnDrawGizmos()
     {
         if (Ai != null && Ai.hasPath)
@@ -130,8 +156,9 @@ public class EnemyMove : MonoBehaviour
             Gizmos.DrawLine(transform.position, Ai.destination);
         }
 
-        // Optional: Draw the roam radius for visualization
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(roamCenter, roamRadius);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(lastSeenPosition, roamRadius);
     }
 }
