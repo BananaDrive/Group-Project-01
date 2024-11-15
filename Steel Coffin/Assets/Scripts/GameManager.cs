@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject Play;
 
+    public GameObject StartOptions;
+    public bool StartOptions1;
+
     public GameObject Settings;
     public bool SettingsOpen = false;
 
@@ -31,8 +34,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() 
     {
-    
-        
+        StartOptions.SetActive(false);
 
     }
 
@@ -121,6 +123,20 @@ public class GameManager : MonoBehaviour
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextSceneIndex);
+        }
+    }
+
+    public void start()
+    {
+        if (StartOptions1)
+        {
+            StartOptions.SetActive(false);
+            StartOptions1 = false;
+        }
+        else
+        {
+            StartOptions.SetActive(true);
+            StartOptions1 = true;
         }
     }
 }
