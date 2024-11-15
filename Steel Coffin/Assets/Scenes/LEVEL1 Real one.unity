@@ -719,7 +719,7 @@ Transform:
   m_GameObject: {fileID: 1077421334}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1.01, z: 1}
+  m_LocalPosition: {x: 0, y: 1.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -739,9 +739,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   vision: 10
-  roamRadius: 10
+  roamRadius: 25
   searchRoamTime: 10
-  roamCenter: {x: 0, y: 0, z: 0}
+  roamCenter: {x: 5, y: 0, z: 0}
   player: {fileID: 1050935073}
   obstacleLayer:
     serializedVersion: 2
@@ -1100,7 +1100,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_UseGeometry: 0
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1

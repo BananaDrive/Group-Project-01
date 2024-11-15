@@ -51,6 +51,10 @@ public class EnemyMove : MonoBehaviour
             RoamStaticCenter();
         }
 
+        Debug.DrawLine(transform.position, Ai.destination, Color.red);
+
+        Debug.Log($"Roam Center: {roamCenter}");
+
     }
 
     bool HasLineOfSight()
@@ -68,8 +72,11 @@ public class EnemyMove : MonoBehaviour
 
     void RoamLastPosition()
     {
-        if (Vector3.Distance(transform.position, roamPoint) < 1f || Ai.isStopped)
+        Debug.Log("Attempting to roam last seen position");
+
+        if (Vector3.Distance(transform.position, roamPoint) < 10f || Ai.isStopped)
         {
+            Debug.Log("Setting new roam point near last seen position");
             SetRandomRoamPoint(lastSeenPosition);
         }
         Ai.destination = roamPoint;
@@ -83,21 +90,48 @@ public class EnemyMove : MonoBehaviour
 
     void RoamStaticCenter()
     {
-        if (Vector3.Distance(transform.position, roamPoint) < 1f || Ai.isStopped)
+        Debug.Log("Attempting to roam around static center");
+
+        if (Vector3.Distance(transform.position, roamPoint) < 10f || Ai.isStopped)
         {
+            Debug.Log("Setting new roam point near static center");
             SetRandomRoamPoint(roamCenter);
         }
+        Ai.isStopped = false;
         Ai.destination = roamPoint;
     }
 
     void SetRandomRoamPoint(Vector3 center)
     {
-        Vector3 randomDirection = Random.insideUnitSphere * roamRadius;
-        randomDirection += center;
-
-        if (NavMesh.SamplePosition(randomDirection, out NavMeshHit navHit, roamRadius, NavMesh.AllAreas))
+        int maxAttempts = 10;
+        for (int i = 0; i < maxAttempts; i++)
         {
-            roamPoint = navHit.position;
+            Vector3 randomDirection = Random.insideUnitSphere * roamRadius;
+            randomDirection += center;
+
+            if (NavMesh.SamplePosition(randomDirection, out NavMeshHit navHit, roamRadius, NavMesh.AllAreas))
+            {
+                roamPoint = navHit.position;
+                //Debug.Log($"Found Roam Point: {roamPoint}");
+                return; // Exit the function if a valid point is found
+            }
+            else
+            {
+                //Debug.LogWarning($"Failed to find a roam point near {randomDirection}");
+            }
         }
+        //Debug.LogWarning("Unable to find a roam point after multiple attempts.");
+    }
+    private void OnDrawGizmos()
+    {
+        if (Ai != null && Ai.hasPath)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, Ai.destination);
+        }
+
+        // Optional: Draw the roam radius for visualization
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(roamCenter, roamRadius);
     }
 }
