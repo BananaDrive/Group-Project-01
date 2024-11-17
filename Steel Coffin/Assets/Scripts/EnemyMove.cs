@@ -85,7 +85,7 @@ public class EnemyMove : MonoBehaviour
     void RoamStaticCenter()
     {
 
-            Debug.Log("static center");
+            
 
             if (Vector3.Distance(transform.position, roamPoint) < 1.5f || Ai.isStopped)
             {
@@ -113,7 +113,7 @@ public class EnemyMove : MonoBehaviour
     void RoamLastPosition()
     {
 
-        Debug.Log("last seen position");
+        
 
         if (Vector3.Distance(transform.position, roamPoint) < 1.5f || Ai.isStopped)
         {
@@ -155,11 +155,10 @@ public class EnemyMove : MonoBehaviour
             if (NavMesh.SamplePosition(randomDirection, out NavMeshHit navHit, radius, NavMesh.AllAreas))
             {
                 roamPoint = navHit.position;
-                Debug.Log($"Found Roam Point: {roamPoint}");
                 return;
             }
         }
-        Debug.LogWarning("Unable to find a roam point after multiple attempts.");
+       
     }
 
     private void OnDrawGizmos()
