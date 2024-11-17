@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject PauseMenu;
 
+    public GameObject MainMenu;
+
+    public GameObject GameData;
+
     public GameObject Quit;
 
     public GameObject Play;
@@ -31,14 +35,23 @@ public class GameManager : MonoBehaviour
     // ItemManager Variables
     public static GameManager Instance;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    //playerdata
+    Player playerData;
+
+
     void Start() 
     {
+        if (SceneManager.GetActiveScene().buildIndex > 0)
+        {
+            playerData = GameObject.Find("player").GetComponent<Player>();
+        }
+
         StartOptions.SetActive(false);
 
     }
 
-    // Update is called once per frame
+
     void Update() 
     { 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -138,6 +151,18 @@ public class GameManager : MonoBehaviour
             StartOptions.SetActive(true);
             StartOptions1 = true;
         }
+    }
+
+    public void LoadGameData()
+    {
+        GameData.SetActive(true);
+        MainMenu.SetActive(false);
+    }
+
+    public void MainMenuReload()
+    {
+        MainMenu.SetActive(true);
+        GameData.SetActive(false);
     }
 }
 

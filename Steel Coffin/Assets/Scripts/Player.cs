@@ -26,10 +26,18 @@ public class Player : MonoBehaviour
     private int OGLayer;
     private bool canHide = false;
 
+    public bool sprintMode = false;
+    public float sprintMultiplier = 1.5f;
+
+    GameManager Gm;
+
 
     void Start()
     {
+        Gm = gameObject.GetComponent<GameManager>();
         OGLayer = gameObject.layer;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 
@@ -37,19 +45,36 @@ public class Player : MonoBehaviour
     {
         if (!Hidden)
         {
+            // Handle input
             input.x = Input.GetAxis("Horizontal");
             input.y = Input.GetAxis("Vertical");
             input.Normalize();
 
-            Rib.linearVelocity = new Vector3(input.x * walk, Rib.linearVelocity.y, input.y * walk);
+            // Determine current speed
+            float currentSpeed = sprintMode ? walk * sprintMultiplier : walk;
+
+            // Apply movement
+            Vector3 moveDirection = new Vector3(input.x * currentSpeed, Rib.linearVelocity.y, input.y * currentSpeed);
+            Rib.linearVelocity = moveDirection;
         }
 
-            if (Input.GetKeyDown(KeyCode.F) && canHide && currentHideObject != null)
-            {
-                ToggleHide();
-            }
-        
+        if (Input.GetKeyDown(KeyCode.F) && canHide && currentHideObject != null)
+        {
+            ToggleHide();
+        }
+
+        // Sprint Mechanics
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            sprintMode = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            sprintMode = false;
+        }
     }
+
+
 
     private void ToggleHide()
     {
