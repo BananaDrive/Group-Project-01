@@ -1,46 +1,54 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
-using UnityEditor.SearchService;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public bool IsPaused = false; // Pause variable
-
+    public bool IsPaused = false;
     public bool ismenu;
 
+    // UI Elements
     public GameObject PauseMenu;
-
     public GameObject MainMenu;
-
     public GameObject GameData;
-
     public GameObject Quit;
-
     public GameObject Play;
-
     public GameObject StartOptions;
     public bool StartOptions1;
-
     public GameObject Settings;
     public bool SettingsOpen = false;
-
     public GameObject NewGame;
-
     public GameObject LoadGame;
 
-    // ItemManager Variables
+    // Singleton Instance
     public static GameManager Instance;
 
-
-    //playerdata
+    // Player Data
     Player playerData;
 
+    // Save Profile Management
+    private SaveProfile currentProfile;
+    private string currentProfileName;
+    private static string saveDirectory = Application.persistentDataPath + "/saves/";
 
-    void Start() 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex > 0)
         {
@@ -48,12 +56,10 @@ public class GameManager : MonoBehaviour
         }
 
         StartOptions.SetActive(false);
-
     }
 
-
-    void Update() 
-    { 
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!ismenu)
@@ -63,23 +69,56 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // ItemManager Script Pieces
+    // Save the Game
+    public void SaveGame()
+    {
+        if (currentProfile != null)
+        {
+            currentProfile.level = SceneManager.GetActiveScene().buildIndex;
+            currentProfile.playerPosition = playerData.transform.position;
+            SaveSystem.SaveProfile(currentProfile);
+            Debug.Log("Game Saved: " + currentProfileName);
+        }
+    }
 
+    // Load the Game
+    public void LoadPreviousGame(string profileName)
+    {
+        currentProfile = SaveSystem.LoadProfile(profileName);
+        if (currentProfile != null)
+        {
+            currentProfileName = profileName;
+            SceneManager.LoadScene(currentProfile.level);
+            Debug.Log("Game Loaded: " + currentProfileName);
+        }
+    }
+
+    // New Game
+    public void CreateNewGame(int sceneID)
+    {
+        string newProfileName = "Profile_" + System.Guid.NewGuid().ToString();
+        currentProfile = new SaveProfile(newProfileName);
+        currentProfileName = newProfileName;
+
+        SaveSystem.SaveProfile(currentProfile);
+        SceneManager.LoadScene(sceneID);
+        Time.timeScale = 1;
+    }
+
+    // Delete Game Profile
+    public void DeleteProfile(string profileName)
+    {
+        SaveSystem.DeleteProfile(profileName);
+        Debug.Log("Profile Deleted: " + profileName);
+    }
 
     public void PauseScreen()
     {
-        //PlayerInterface.SetActive(false);   //Activate whan Interface is Attached
         PauseMenu.SetActive(true);
         IsPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
-
-    }
-
-    public void LoadLevel(int sceneID)
-    {
-        SceneManager.LoadScene(sceneID);
     }
 
     public void Resume()
@@ -91,6 +130,11 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
     }
 
+    public void LoadLevel(int sceneID)
+    {
+        SceneManager.LoadScene(sceneID);
+    }
+
     public void Restart()
     {
         LoadLevel(SceneManager.GetActiveScene().buildIndex);
@@ -99,24 +143,19 @@ public class GameManager : MonoBehaviour
 
     public void Exit()
     {
+        SaveGame();
         Application.Quit();
-    }
-
-    public void Newgame(int sceneID)
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(sceneID);
     }
 
     public void Settings1()
     {
         if (SettingsOpen)
         {
-           Settings.SetActive(false);
-           SettingsOpen = false;
-           Cursor.visible = false;
-           Cursor.lockState = CursorLockMode.Locked;
-           Time.timeScale = 1;
+            Settings.SetActive(false);
+            SettingsOpen = false;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1;
         }
         else
         {
@@ -139,20 +178,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void start()
-    {
-        if (StartOptions1)
-        {
-            StartOptions.SetActive(false);
-            StartOptions1 = false;
-        }
-        else
-        {
-            StartOptions.SetActive(true);
-            StartOptions1 = true;
-        }
-    }
-
     public void LoadGameData()
     {
         GameData.SetActive(true);
@@ -165,4 +190,3 @@ public class GameManager : MonoBehaviour
         GameData.SetActive(false);
     }
 }
-
