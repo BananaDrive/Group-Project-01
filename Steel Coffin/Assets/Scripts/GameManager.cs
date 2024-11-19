@@ -33,19 +33,37 @@ public class GameManager : MonoBehaviour
     // Save Profile Management
     private SaveProfile currentProfile;
     private string currentProfileName;
-    private static string saveDirectory = Application.persistentDataPath + "/saves/";
+    private static string saveDirectory;
 
     private void Awake()
     {
+
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            saveDirectory = Application.persistentDataPath + "/saves/";
+
+            if (!Directory.Exists(saveDirectory))
+            {
+                Directory.CreateDirectory(saveDirectory);
+            }
+            Debug.Log("Save directory begun: " + saveDirectory);
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    public static string GetSaveDirectory()
+    {
+        if (string.IsNullOrEmpty(saveDirectory))
+        {
+            Debug.LogError("Save directory isn't initialized. Ensure GameManager is loaded.");
+        }
+        return saveDirectory;
     }
 
     void Start()
