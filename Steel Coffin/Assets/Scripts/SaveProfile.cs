@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 
 [System.Serializable]
 public class SaveProfile
@@ -11,7 +10,7 @@ public class SaveProfile
     public SaveProfile(string name)
     {
         profileName = name;
-        level = 1;
-        playerPosition = Vector3.zero;
+        level = 1; // Default level
+        playerPosition = Vector3.zero; // Default starting position
     }
 }

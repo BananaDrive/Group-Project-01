@@ -207,4 +207,10 @@ public class GameManager : MonoBehaviour
         MainMenu.SetActive(true);
         GameData.SetActive(false);
     }
+
+    public void ButtonsToStart()
+    {
+        StartOptions.SetActive(true);
+
+    }
 }
