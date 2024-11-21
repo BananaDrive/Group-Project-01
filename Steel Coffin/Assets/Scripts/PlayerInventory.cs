@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public List<GameObject> inventory = new List<GameObject>(9); 
+    public List<GameObject> inventory = new List<GameObject>(3); 
     public Transform hand; 
     public KeyCode pickupKey = KeyCode.E;
     public KeyCode[] hotbarKeys;
@@ -14,9 +14,9 @@ public class PlayerInventory : MonoBehaviour
 
     void Start()
     {
-        hotbarKeys = new KeyCode[9] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.Alpha9 };
+        hotbarKeys = new KeyCode[3] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3};
 
-        inventory = new List<GameObject>(new GameObject[9]);
+        inventory = new List<GameObject>(new GameObject[3]);
 
         //pickupMessage.text = "";
     }
