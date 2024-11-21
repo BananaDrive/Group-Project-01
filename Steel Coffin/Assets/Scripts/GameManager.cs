@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour
         }
 
         StartOptions.SetActive(false);
+
+        StartOptions1 = false;
     }
 
     void Update()
@@ -210,7 +212,17 @@ public class GameManager : MonoBehaviour
 
     public void ButtonsToStart()
     {
-        StartOptions.SetActive(true);
+        if (StartOptions1)
+        {
+            StartOptions.SetActive(false);
+            StartOptions1 = false;
+        }
+        else
+        {
+            StartOptions.SetActive(true);
+            StartOptions1 = true;
+        }
+       
 
     }
 }
