@@ -2937,14 +2937,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1076522320}
     - target: {fileID: 7050194939004882081, guid: 60651c7f5b58e2e4e86bf4b4d4c21804, type: 3}
-      propertyPath: inventory.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7050194939004882081, guid: 60651c7f5b58e2e4e86bf4b4d4c21804, type: 3}
-      propertyPath: hotbarImages.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7050194939004882081, guid: 60651c7f5b58e2e4e86bf4b4d4c21804, type: 3}
       propertyPath: 'hotbarImages.Array.data[0]'
       value: 
       objectReference: {fileID: 1797464202}
@@ -2956,30 +2948,6 @@ PrefabInstance:
       propertyPath: 'hotbarImages.Array.data[2]'
       value: 
       objectReference: {fileID: 508655298}
-    - target: {fileID: 7050194939004882081, guid: 60651c7f5b58e2e4e86bf4b4d4c21804, type: 3}
-      propertyPath: 'hotbarImages.Array.data[3]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7050194939004882081, guid: 60651c7f5b58e2e4e86bf4b4d4c21804, type: 3}
-      propertyPath: 'hotbarImages.Array.data[4]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7050194939004882081, guid: 60651c7f5b58e2e4e86bf4b4d4c21804, type: 3}
-      propertyPath: 'hotbarImages.Array.data[5]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7050194939004882081, guid: 60651c7f5b58e2e4e86bf4b4d4c21804, type: 3}
-      propertyPath: 'hotbarImages.Array.data[6]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7050194939004882081, guid: 60651c7f5b58e2e4e86bf4b4d4c21804, type: 3}
-      propertyPath: 'hotbarImages.Array.data[7]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7050194939004882081, guid: 60651c7f5b58e2e4e86bf4b4d4c21804, type: 3}
-      propertyPath: 'hotbarImages.Array.data[8]'
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8439739427634039284, guid: 60651c7f5b58e2e4e86bf4b4d4c21804, type: 3}
       propertyPath: m_Name
       value: player
