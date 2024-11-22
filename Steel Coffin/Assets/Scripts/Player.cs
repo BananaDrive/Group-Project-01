@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
             Rib.linearVelocity = moveDirection;
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && canHide && currentHideObject != null)
+        if (Input.GetKeyDown(KeyCode.E) && canHide && currentHideObject != null)
         {
             ToggleHide();
         }
