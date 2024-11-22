@@ -1,9 +1,9 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class TeleporterScript : MonoBehaviour
+public class TPScenes : MonoBehaviour
 {
-    public Vector3 teleportPos = new Vector3(0, 0, 0);
     public float activationRange = 1f;
     public Transform player;
     public TextMeshProUGUI activateText;
@@ -11,7 +11,7 @@ public class TeleporterScript : MonoBehaviour
 
     void Start()
     {
- 
+
         playerInventory = player.GetComponent<PlayerInventory>();
 
         if (playerInventory == null)
@@ -28,7 +28,7 @@ public class TeleporterScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && playerInventory.keyPickup)
             {
-                player.transform.position = teleportPos;
+                NextLevel();
             }
         }
         else
@@ -36,4 +36,17 @@ public class TeleporterScript : MonoBehaviour
             activateText.gameObject.SetActive(false);
         }
     }
+
+    void NextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+    }
+
 }
+

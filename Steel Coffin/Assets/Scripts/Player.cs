@@ -29,6 +29,9 @@ public class Player : MonoBehaviour
     public bool sprintMode = false;
     public float sprintMultiplier = 1.5f;
 
+    public GameObject Key;
+    public bool HasKey = false;
+
     GameManager Gm;
 
 

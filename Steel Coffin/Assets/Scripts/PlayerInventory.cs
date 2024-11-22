@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class PlayerInventory : MonoBehaviour
     public KeyCode pickupKey = KeyCode.E;
     public KeyCode[] hotbarKeys;
     public Image[] hotbarImages;
-    public Text pickupMessage;
-    public int currentSlot = 0; 
+    public TextMeshProUGUI pickupMessage;
+    public int currentSlot = 0;
+    public bool keyPickup = false;
 
     void Start()
     {
@@ -18,13 +20,13 @@ public class PlayerInventory : MonoBehaviour
 
         inventory = new List<GameObject>(new GameObject[3]);
 
-        //pickupMessage.text = "";
     }
 
     void Update()
     {
         HandlePickup();
         HandleHotbarSwitch();
+        CheckForKeys();
     }
 
     void HandlePickup()
@@ -43,22 +45,16 @@ public class PlayerInventory : MonoBehaviour
                 GameObject item = hit.collider.gameObject;
                 if (item.CompareTag("PickupItem"))
                 {
-                    pickupMessage.text = "(E) " + item.name;
+                    //pickupMessage.text = "(E) " + item.name;
                     if (Input.GetKeyDown(pickupKey))
                     {
                         AddToInventory(item);
                     }
                     
                 }
-                else
-                {
-                    pickupMessage.text = "";
-                }
+                
             }
-            else
-            {
-                pickupMessage.text = "";
-            }
+           
         }
     }
 
@@ -73,6 +69,7 @@ public class PlayerInventory : MonoBehaviour
                 inventory[i] = item;
                 item.SetActive(false);
                 UpdateHotbarUI();
+                CheckForKeys();
                 Debug.Log("Item added to inventory");
                 return;
             }
@@ -114,6 +111,20 @@ public class PlayerInventory : MonoBehaviour
                     inventory[i].transform.position = hand.position;
                     inventory[i].transform.SetParent(hand);
                 }
+            }
+        }
+    }
+
+    void CheckForKeys()
+    {
+        keyPickup = false;
+
+        foreach (var item in inventory)
+        {
+            if (item != null && (item.name == "Key1" || item.name == "Key2" || item.name == "Key3"))
+            {
+                keyPickup = true;
+                break;
             }
         }
     }
