@@ -31,32 +31,36 @@ public class PlayerInventory : MonoBehaviour
 
     void HandlePickup()
     {
-        if (Input.GetKeyDown(pickupKey))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            RaycastHit hit;
-            float sphereRadius = .5f;
-            float maxDistance = 10f; 
+            float sphereRadius = 2.5f;
+            float maxDistance = 10f;
 
             Vector3 origin = transform.position;
-            Vector3 direction = transform.forward;
 
-            if (Physics.SphereCast(origin, sphereRadius, direction, out hit, maxDistance))
+            Collider[] colliders = Physics.OverlapSphere(origin, sphereRadius);
+
+            foreach (Collider collider in colliders)
             {
-                GameObject item = hit.collider.gameObject;
-                if (item.CompareTag("PickupItem"))
+                GameObject item = collider.gameObject;
+
+                if (Vector3.Distance(origin, item.transform.position) <= maxDistance)
                 {
-                    //pickupMessage.text = "(E) " + item.name;
-                    if (Input.GetKeyDown(pickupKey))
+                    if (item.CompareTag("PickupItem"))
                     {
-                        AddToInventory(item);
+                        Debug.Log("Pickup item detected: " + item.name);
+
+                        if (Input.GetKeyDown(pickupKey))
+                        {
+                            AddToInventory(item);
+                            CheckForKeys();
+                        }
                     }
-                    
                 }
-                
             }
-           
         }
     }
+
 
 
 
@@ -69,7 +73,7 @@ public class PlayerInventory : MonoBehaviour
                 inventory[i] = item;
                 item.SetActive(false);
                 UpdateHotbarUI();
-                CheckForKeys();
+                
                 Debug.Log("Item added to inventory");
                 return;
             }
@@ -86,7 +90,6 @@ public class PlayerInventory : MonoBehaviour
             {
                 currentSlot = i;
                 UpdateHotbarUI();
-                EquipItem();
             }
         }
     }
@@ -99,21 +102,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    void EquipItem()
-    {
-        for (int i = 0; i < inventory.Count; i++)
-        {
-            if (inventory[i] != null)
-            {
-                inventory[i].SetActive(i == currentSlot);
-                if (i == currentSlot)
-                {
-                    inventory[i].transform.position = hand.position;
-                    inventory[i].transform.SetParent(hand);
-                }
-            }
-        }
-    }
+
 
     void CheckForKeys()
     {

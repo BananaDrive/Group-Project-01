@@ -26,7 +26,7 @@ public class TeleporterScript : MonoBehaviour
         {
             activateText.gameObject.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.E) && playerInventory.keyPickup)
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 player.transform.position = teleportPos;
             }

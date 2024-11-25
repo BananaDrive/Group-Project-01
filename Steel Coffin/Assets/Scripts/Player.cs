@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     public GameObject Key;
     public bool HasKey = false;
 
+
     GameManager Gm;
 
 
@@ -75,6 +76,7 @@ public class Player : MonoBehaviour
         {
             sprintMode = false;
         }
+
     }
 
 
@@ -129,7 +131,10 @@ public class Player : MonoBehaviour
         {
             currentHideObject = null;
             canHide = false;
-;
+
         }
     }
+
+
+
 }

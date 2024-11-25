@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
     private string currentProfileName;
     private static string saveDirectory;
 
+
+    private PlayerInventory playerInventory;
+
     private void Awake()
     {
 
@@ -189,12 +192,15 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
-
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        if (playerInventory.keyPickup)
         {
-            SceneManager.LoadScene(nextSceneIndex);
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            int nextSceneIndex = currentSceneIndex + 1;
+
+            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(nextSceneIndex);
+            }
         }
     }
 

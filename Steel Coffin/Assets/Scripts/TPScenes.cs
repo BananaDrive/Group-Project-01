@@ -8,6 +8,7 @@ public class TPScenes : MonoBehaviour
     public Transform player;
     public TextMeshProUGUI activateText;
     private PlayerInventory playerInventory;
+    public GameManager GM;
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class TPScenes : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && playerInventory.keyPickup)
             {
-                NextLevel();
+                GM.LoadNextLevel();
             }
         }
         else
@@ -37,16 +38,7 @@ public class TPScenes : MonoBehaviour
         }
     }
 
-    void NextLevel()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
-
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(nextSceneIndex);
-        }
-    }
+    
 
 }
 
