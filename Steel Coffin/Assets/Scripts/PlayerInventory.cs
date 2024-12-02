@@ -74,12 +74,12 @@ public class PlayerInventory : MonoBehaviour
                 item.SetActive(false);
                 UpdateHotbarUI();
                 
-                Debug.Log("Item added to inventory");
+                
                 return;
             }
         }
        
-        Debug.Log("Inventory is full! Cannot pick up the item.");
+
     }
 
     void HandleHotbarSwitch()
