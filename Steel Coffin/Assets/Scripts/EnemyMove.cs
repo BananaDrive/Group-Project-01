@@ -29,7 +29,7 @@ public class EnemyMove : MonoBehaviour
 
     void Start()
     {
-        playerScript = GameObject.Find("player").GetComponent<Player>();
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Ai = GetComponent<NavMeshAgent>();
         isSearching = false;
         isWaiting = false;

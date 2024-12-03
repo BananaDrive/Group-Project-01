@@ -194,6 +194,7 @@ public class GameManager : MonoBehaviour
     {
         if (playerInventory.keyPickup)
         {
+            print("test");
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             int nextSceneIndex = currentSceneIndex + 1;
 
