@@ -29,51 +29,15 @@ public class GameManager : MonoBehaviour
 
     // Player Data
     Player playerData;
+    PlayerInventory playerInventory;
 
-    // Save Profile Management
-    private SaveProfile currentProfile;
-    private string currentProfileName;
-    private static string saveDirectory;
-
-
-    private PlayerInventory playerInventory;
-
-    private void Awake()
-    {
-
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-
-            saveDirectory = Application.persistentDataPath + "/saves/";
-
-            if (!Directory.Exists(saveDirectory))
-            {
-                Directory.CreateDirectory(saveDirectory);
-            }
-            Debug.Log("Save directory begun: " + saveDirectory);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public static string GetSaveDirectory()
-    {
-        if (string.IsNullOrEmpty(saveDirectory))
-        {
-            Debug.LogError("Save directory isn't initialized. Ensure GameManager is loaded.");
-        }
-        return saveDirectory;
-    }
 
     void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex > 0)
         {
             playerData = GameObject.Find("player").GetComponent<Player>();
+            playerInventory = GameObject.Find("player").GetComponent<PlayerInventory>();
         }
 
         StartOptions.SetActive(false);
@@ -92,48 +56,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Save the Game
-    public void SaveGame()
-    {
-        if (currentProfile != null)
-        {
-            currentProfile.level = SceneManager.GetActiveScene().buildIndex;
-            currentProfile.playerPosition = playerData.transform.position;
-            SaveSystem.SaveProfile(currentProfile);
-            Debug.Log("Game Saved: " + currentProfileName);
-        }
-    }
-
-    // Load the Game
-    public void LoadPreviousGame(string profileName)
-    {
-        currentProfile = SaveSystem.LoadProfile(profileName);
-        if (currentProfile != null)
-        {
-            currentProfileName = profileName;
-            SceneManager.LoadScene(currentProfile.level);
-            Debug.Log("Game Loaded: " + currentProfileName);
-        }
-    }
-
-    // New Game
-    public void CreateNewGame(int sceneID)
-    {
-        string newProfileName = "Profile_" + System.Guid.NewGuid().ToString();
-        currentProfile = new SaveProfile(newProfileName);
-        currentProfileName = newProfileName;
-
-        SaveSystem.SaveProfile(currentProfile);
-        SceneManager.LoadScene(sceneID);
-        Time.timeScale = 1;
-    }
-
-    // Delete Game Profile
-    public void DeleteProfile(string profileName)
-    {
-        SaveSystem.DeleteProfile(profileName);
-        Debug.Log("Profile Deleted: " + profileName);
-    }
 
     public void PauseScreen()
     {
@@ -166,7 +88,6 @@ public class GameManager : MonoBehaviour
 
     public void Exit()
     {
-        SaveGame();
         Application.Quit();
     }
 
