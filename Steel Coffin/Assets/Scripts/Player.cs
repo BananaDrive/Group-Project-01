@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     public GameObject Key;
     public bool HasKey = false;
 
+    public GameObject DropFloor;
+
 
     GameManager Gm;
 
@@ -107,6 +109,13 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Player"))
+        {
+            if (DropFloor != null)
+            {
+                Destroy(DropFloor);
+            }
+        }
         foreach(GameObject hideObj in HideObject)
         {
             if (other.gameObject == hideObj)
@@ -123,6 +132,8 @@ public class Player : MonoBehaviour
 
             
         }
+
+        
     }
 
     private void OnTriggerExit(Collider other)
@@ -134,6 +145,8 @@ public class Player : MonoBehaviour
 
         }
     }
+
+    
 
 
 
