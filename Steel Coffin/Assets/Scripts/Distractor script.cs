@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class Distractorscript : MonoBehaviour
 {
-    public float throwForce = .2f;
+    public float throwForce = 5f;
     public float fuseTime = 3f;
     public GameObject Distractprojectile;
     public Transform player;
-    public Transform playerlookdirection;
+    public Transform playerR;
+    public Transform playerL;
     public int currentdistract = 3;
     public int maxdistract = 4;
     public bool isthrowing = false;
@@ -21,27 +22,49 @@ public class Distractorscript : MonoBehaviour
         if (Input.GetMouseButton(0) && currentdistract > 0 && !isthrowing)
         {
             distracttriggered = true;
-            ThrowGrenade();
+            ThrowGrenadeL();
+            isthrowing = true;
+        }
+
+        if (Input.GetMouseButton(1) && currentdistract > 0 && !isthrowing)
+        {
+            distracttriggered = true;
+            ThrowGrenadeR();
             isthrowing = true;
         }
 
 
-        if (currentdistract <= 0)
-        {
-            Deactivateboomboom();
-        }
-
     }
 
-    private void ThrowGrenade()
+    private void ThrowGrenadeL()
     {
 
-        GameObject projectile = Instantiate(Distractprojectile, playerlookdirection.position, playerlookdirection.rotation * Quaternion.Euler(90, 0, 0));
+        GameObject projectile = Instantiate(Distractprojectile, playerL.position, playerL.rotation * Quaternion.Euler(90, 0, 0));
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
 
         if (rb != null)
         {
-            rb.AddForce(playerlookdirection.transform.forward * throwForce, ForceMode.Impulse);
+            rb.AddForce(-playerL.transform.right * throwForce);
+        }
+        else
+        {
+
+        }
+
+        currentdistract--;
+
+        StartCoroutine(CooldownThrow());
+    }
+
+    private void ThrowGrenadeR()
+    {
+
+        GameObject projectile = Instantiate(Distractprojectile, playerR.position, playerR.rotation * Quaternion.Euler(90, 0, 0));
+        Rigidbody rb = projectile.GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.AddForce(playerR.transform.right * throwForce);
         }
         else
         {
