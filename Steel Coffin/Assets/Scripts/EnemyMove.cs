@@ -17,6 +17,7 @@ public class EnemyMove : MonoBehaviour
 
     public Transform[] players;
     public LayerMask obstacleLayer;
+    public LayerMask InvisableLayer;
 
     private NavMeshAgent Ai;
     private Player playerScript;
@@ -98,6 +99,11 @@ public class EnemyMove : MonoBehaviour
 
         if (Physics.Raycast(transform.position, directionToPlayer, out RaycastHit Hit, distanceToPlayer, obstacleLayer))
         {
+            if (((1 << Hit.transform.gameObject.layer) & InvisableLayer) != 0)
+            {
+                return false;
+            }
+
             return Hit.transform == player;
         }
         return true;
