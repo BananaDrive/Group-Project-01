@@ -4,7 +4,7 @@ using UnityEngine;
 public class Distractorscript : MonoBehaviour
 {
     public float throwForce = 5f;
-    public float fuseTime = 3f;
+    public float LifeTime = 15f;
     public GameObject Distractprojectile;
     public Transform player;
     public Transform playerR;
@@ -16,24 +16,31 @@ public class Distractorscript : MonoBehaviour
     public bool canthrow = true;
 
     public bool distracttriggered = false;
+    GameManager Gm;
 
+
+    private void Start()
+    {
+        Gm = gameObject.GetComponent<GameManager>();
+    }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && currentdistract > 0 && !isthrowing)
-        {
-            distracttriggered = true;
-            ThrowGrenadeL();
-            isthrowing = true;
-        }
+       
+            if (Input.GetMouseButtonDown(0) && currentdistract > 0 && !isthrowing)
+            {
+                distracttriggered = true;
+                ThrowGrenadeL();
+                isthrowing = true;
+            }
 
-        if (Input.GetMouseButtonDown(1) && currentdistract > 0 && !isthrowing)
-        {
-            distracttriggered = true;
-            ThrowGrenadeR();
-            isthrowing = true;
-        }
+            if (Input.GetMouseButtonDown(1) && currentdistract > 0 && !isthrowing)
+            {
+                distracttriggered = true;
+                ThrowGrenadeR();
+                isthrowing = true;
+            }
 
-
+        
     }
 
     private void ThrowGrenadeL()
@@ -60,6 +67,7 @@ public class Distractorscript : MonoBehaviour
 
         currentdistract--;
 
+        StartCoroutine(DestroyTime(projectile));
         StartCoroutine(CooldownThrow());
     }
 
@@ -87,6 +95,7 @@ public class Distractorscript : MonoBehaviour
 
         currentdistract--;
 
+        StartCoroutine(DestroyTime(projectile));
         StartCoroutine(CooldownThrow());
     }
 
@@ -96,8 +105,16 @@ public class Distractorscript : MonoBehaviour
         isthrowing = false;
     }
 
+    private IEnumerator DestroyTime(GameObject projectile)
+    {
+        yield return new WaitForSeconds(LifeTime);
+        Destroy(projectile);
+    }
+
     public void Deactivateboomboom()
     {
         gameObject.SetActive(false);
     }
+
+    
 }

@@ -54,6 +54,11 @@ public class GameManager : MonoBehaviour
                 PauseScreen();
             }
         }
+
+        if(IsPaused)
+        {
+            Paused();
+        }
     }
 
 
@@ -152,5 +157,10 @@ public class GameManager : MonoBehaviour
         }
        
 
+    }
+
+    public void Paused()
+    {
+        Time.timeScale = 0;
     }
 }

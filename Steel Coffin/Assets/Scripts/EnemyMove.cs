@@ -47,32 +47,32 @@ public class EnemyMove : MonoBehaviour
 
     void Update()
     {
-        // Update the list of players every frame
+        
         players = GameObject.FindGameObjectsWithTag("Player").Select(player => player.transform).ToArray();
 
-        float closestDistance = float.MaxValue; // Initialize the closest distance
+        float closestDistance = float.MaxValue; 
         Transform closestPlayer = null;
 
-        // Iterate over all players
+        
         foreach (Transform player in players)
         {
-            // Calculate the distance to the current player
+            
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-            // Check if this player is within vision range and has line of sight
+            
             if (distanceToPlayer <= vision && HasLineOfSight(player))
             {
                 if (distanceToPlayer < closestDistance)
                 {
                     closestDistance = distanceToPlayer;
-                    closestPlayer = player; // Set the closest player
+                    closestPlayer = player;
                 }
             }
         }
 
         if (closestPlayer != null)
         {
-            // Move towards the closest player
+            
             Ai.destination = closestPlayer.position;
             Ai.isStopped = false;
             lastSeenPosition = closestPlayer.position;
