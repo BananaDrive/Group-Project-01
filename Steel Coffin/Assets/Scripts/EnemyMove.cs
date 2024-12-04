@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,7 +15,7 @@ public class EnemyMove : MonoBehaviour
     public float waitTimeAtPoint;
     public Vector3 roamCenter;
 
-    public Transform player;
+    public Transform[] players;
     public LayerMask obstacleLayer;
 
     private NavMeshAgent Ai;
@@ -46,17 +47,39 @@ public class EnemyMove : MonoBehaviour
 
     void Update()
     {
-        DistanceToPlayer = Vector3.Distance(transform.position, player.position);
+        // Update the list of players every frame
+        players = GameObject.FindGameObjectsWithTag("Player").Select(player => player.transform).ToArray();
 
-        if (DistanceToPlayer <= vision && HasLineOfSight())
+        float closestDistance = float.MaxValue; // Initialize the closest distance
+        Transform closestPlayer = null;
+
+        // Iterate over all players
+        foreach (Transform player in players)
         {
-            Ai.destination = player.position;
+            // Calculate the distance to the current player
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+            // Check if this player is within vision range and has line of sight
+            if (distanceToPlayer <= vision && HasLineOfSight(player))
+            {
+                if (distanceToPlayer < closestDistance)
+                {
+                    closestDistance = distanceToPlayer;
+                    closestPlayer = player; // Set the closest player
+                }
+            }
+        }
+
+        if (closestPlayer != null)
+        {
+            // Move towards the closest player
+            Ai.destination = closestPlayer.position;
             Ai.isStopped = false;
-            lastSeenPosition = player.position;
+            lastSeenPosition = closestPlayer.position;
             isSearching = true;
             searchTimer = searchRoamTime;
         }
-        else if(isSearching)
+        else if (isSearching)
         {
             RoamLastPosition();
         }
@@ -68,7 +91,7 @@ public class EnemyMove : MonoBehaviour
         Debug.DrawLine(transform.position, Ai.destination, Color.red);
     }
 
-    bool HasLineOfSight()
+    bool HasLineOfSight(Transform player)
     {
         Vector3 directionToPlayer = (player.position - transform.position).normalized;
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);

@@ -12,21 +12,21 @@ public class Distractorscript : MonoBehaviour
     public int currentdistract = 3;
     public int maxdistract = 4;
     public bool isthrowing = false;
-    public float throwrate = 2f;
+    public float throwrate = 2;
     public bool canthrow = true;
 
     public bool distracttriggered = false;
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && currentdistract > 0 && !isthrowing)
+        if (Input.GetMouseButtonDown(0) && currentdistract > 0 && !isthrowing)
         {
             distracttriggered = true;
             ThrowGrenadeL();
             isthrowing = true;
         }
 
-        if (Input.GetMouseButton(1) && currentdistract > 0 && !isthrowing)
+        if (Input.GetMouseButtonDown(1) && currentdistract > 0 && !isthrowing)
         {
             distracttriggered = true;
             ThrowGrenadeR();
@@ -40,7 +40,14 @@ public class Distractorscript : MonoBehaviour
     {
 
         GameObject projectile = Instantiate(Distractprojectile, playerL.position, playerL.rotation * Quaternion.Euler(90, 0, 0));
+        
+        projectile.AddComponent<Rigidbody>();
+
+        projectile.GetComponent<Rigidbody>().mass = 0.01f;
+
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
+
+        Destroy(projectile.GetComponent<Distractorscript>());
 
         if (rb != null)
         {
@@ -60,7 +67,14 @@ public class Distractorscript : MonoBehaviour
     {
 
         GameObject projectile = Instantiate(Distractprojectile, playerR.position, playerR.rotation * Quaternion.Euler(90, 0, 0));
+        
+        projectile.AddComponent<Rigidbody>();
+
+        projectile.GetComponent<Rigidbody>().mass = 0.01f;
+
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
+
+        Destroy(projectile.GetComponent<Distractorscript>());
 
         if (rb != null)
         {
