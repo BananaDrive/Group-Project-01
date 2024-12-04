@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Distractorscript : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class Distractorscript : MonoBehaviour
     public bool isthrowing = false;
     public float throwrate = 2;
     public bool canthrow = true;
+    public GameObject AmountHeld;
 
     public bool distracttriggered = false;
     GameManager Gm;
