@@ -16569,8 +16569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fd08d94d596cf4d94dd07ab785e8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profileEntryPrefab: {fileID: 4179259282393797788, guid: 59f6257425ca3f141b862184a8339865, type: 3}
-  contentParent: {fileID: 745805378}
 --- !u!114 &678143871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48189,7 +48187,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1920043696}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: CreateNewGame
+        m_MethodName: LoadLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
