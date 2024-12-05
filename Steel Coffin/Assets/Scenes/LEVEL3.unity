@@ -589,7 +589,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -834,6 +834,7 @@ GameObject:
   - component: {fileID: 132203210}
   - component: {fileID: 132203209}
   - component: {fileID: 132203208}
+  - component: {fileID: 132203211}
   m_Layer: 0
   m_Name: Cube (10)
   m_TagString: Untagged
@@ -871,7 +872,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -930,6 +931,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132203206}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &132203211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132203206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0f638445660bf4c85b3ff4d4b6b975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportPos: {x: -25.049118, y: 51, z: 0.28}
+  activationRange: 1
+  player: {fileID: 1595603707}
+  activateText: {fileID: 658730996}
 --- !u!1 &189654408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,7 +2176,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2375,7 +2392,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2746,7 +2763,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2816,7 +2833,6 @@ GameObject:
   - component: {fileID: 822098257}
   - component: {fileID: 822098260}
   - component: {fileID: 822098259}
-  - component: {fileID: 822098258}
   m_Layer: 0
   m_Name: Cube (13)
   m_TagString: Untagged
@@ -2833,33 +2849,12 @@ Transform:
   m_GameObject: {fileID: 822098256}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.725, y: 1, z: 0.28}
-  m_LocalScale: {x: 0.18862942, y: 1, z: 1}
+  m_LocalPosition: {x: -25.049118, y: 51, z: 0.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2137064911}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &822098258
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822098256}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &822098259
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4038,7 +4033,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -4270,14 +4265,14 @@ MonoBehaviour:
   PauseMenu: {fileID: 658730998}
   MainMenu: {fileID: 658730997}
   GameData: {fileID: 1103149095}
-  Quit: {fileID: 0}
-  Play: {fileID: 0}
-  StartOptions: {fileID: 0}
+  Quit: {fileID: 907715504}
+  Play: {fileID: 2085736491}
+  StartOptions: {fileID: 1103149095}
   StartOptions1: 0
-  Settings: {fileID: 0}
+  Settings: {fileID: 1103149095}
   SettingsOpen: 0
-  NewGame: {fileID: 0}
-  LoadGame: {fileID: 0}
+  NewGame: {fileID: 2085736491}
+  LoadGame: {fileID: 907715504}
 --- !u!4 &1307115408
 Transform:
   m_ObjectHideFlags: 0
@@ -4647,7 +4642,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6648,7 +6643,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6722,7 +6717,7 @@ MonoBehaviour:
   activationRange: 1
   player: {fileID: 1595603707}
   activateText: {fileID: 658730996}
-  GM: {fileID: 0}
+  GM: {fileID: 1307115407}
 --- !u!1 &2067453936
 GameObject:
   m_ObjectHideFlags: 0
@@ -7219,7 +7214,6 @@ Transform:
   - {fileID: 644094152}
   - {fileID: 1449839385}
   - {fileID: 2063233340}
-  - {fileID: 822098257}
   - {fileID: 1113245733}
   - {fileID: 90562138}
   - {fileID: 343200495}
@@ -7329,3 +7323,4 @@ SceneRoots:
   - {fileID: 1103149096}
   - {fileID: 2085736492}
   - {fileID: 907715505}
+  - {fileID: 822098257}
