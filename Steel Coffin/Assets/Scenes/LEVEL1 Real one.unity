@@ -732,6 +732,8 @@ MonoBehaviour:
   activationRange: 5
   player: {fileID: 5079958005753137490}
   activateText: {fileID: 533287880}
+  fadeImage: {fileID: 6556640230500447079}
+  fadeDuration: 1
 --- !u!1 &717771197
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +763,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 186.07, y: 4, z: 5}
-  m_LocalScale: {x: 45, y: 8, z: 1}
+  m_LocalScale: {x: 45, y: 15.2504, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1623905539}
@@ -3379,6 +3381,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+--- !u!114 &6556640230500447079 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1219168942866054171, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 6556640230500447078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6564931360406079551
 PrefabInstance:
   m_ObjectHideFlags: 0
