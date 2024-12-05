@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 public class Player : MonoBehaviour
@@ -34,6 +35,12 @@ public class Player : MonoBehaviour
 
     public GameObject DropFloor;
 
+    public GameObject FlashLight;
+    public bool FlashPickedup = false;
+    public float FlashRadius = 3f;
+    public Transform Flashy;
+    public TextMeshProUGUI InteractText;
+
 
     GameManager Gm;
 
@@ -52,14 +59,17 @@ public class Player : MonoBehaviour
         if (!Hidden)
         {
             // Handle input
+
             input.x = Input.GetAxis("Horizontal");
             input.y = Input.GetAxis("Vertical");
             input.Normalize();
 
             // Determine current speed
+
             float currentSpeed = sprintMode ? walk * sprintMultiplier : walk;
 
             // Apply movement
+
             Vector3 moveDirection = new Vector3(input.x * currentSpeed, Rib.linearVelocity.y, input.y * currentSpeed);
             Rib.linearVelocity = moveDirection;
         }
@@ -70,6 +80,7 @@ public class Player : MonoBehaviour
         }
 
         // Sprint Mechanics
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             sprintMode = true;
@@ -77,6 +88,41 @@ public class Player : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             sprintMode = false;
+        }
+
+        //FlashlightPickup
+        if (Vector3.Distance(Flashy.position, transform.position) <= FlashRadius)
+        {
+            InteractText.gameObject.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                FlashLight.transform.SetParent(transform);
+                FlashLight.transform.localPosition = new Vector3(0.5f, 0, 0.5f);
+                FlashLight.transform.localRotation = Quaternion.;
+
+                FlashPickedup = true;
+
+                InteractText.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            InteractText.gameObject.SetActive(false);
+        }
+
+        //FlashLight Toggle
+
+        if (Input.GetKey(KeyCode.F) && FlashPickedup == true)
+        {
+            if (FlashLight != null)
+            {
+                Light FlashLightLight = FlashLight.GetComponentInChildren<Light>();
+                if (FlashLightLight != null)
+                {
+                    FlashLightLight.enabled = !FlashLightLight.enabled;
+                }
+            }
         }
 
     }
