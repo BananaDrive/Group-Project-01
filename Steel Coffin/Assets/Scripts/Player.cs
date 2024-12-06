@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public float sprintMultiplier = 1.5f;
 
     public GameObject Key;
+    public GameObject Key2;
     public bool HasKey = false;
 
     public GameObject DropFloor;
