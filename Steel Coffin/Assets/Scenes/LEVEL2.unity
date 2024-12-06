@@ -221,6 +221,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1761612270920047752, guid: 6690d6bda29e2f140926472c74393f8b, type: 3}
   m_PrefabInstance: {fileID: 28025552}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &92946451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1488431515735730219, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 1294425155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &95759063
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,9 +851,41 @@ PrefabInstance:
     m_TransformParent: {fileID: 6331024}
     m_Modifications:
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: Play
+      value: 
+      objectReference: {fileID: 92946451}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: Quit
+      value: 
+      objectReference: {fileID: 92946451}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: NewGame
+      value: 
+      objectReference: {fileID: 92946451}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: GameData
+      value: 
+      objectReference: {fileID: 92946451}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: LoadGame
+      value: 
+      objectReference: {fileID: 92946451}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: MainMenu
+      value: 
+      objectReference: {fileID: 92946451}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: Settings
+      value: 
+      objectReference: {fileID: 92946451}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: PauseMenu
       value: 
       objectReference: {fileID: 1294425156}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: StartOptions
+      value: 
+      objectReference: {fileID: 92946451}
     - target: {fileID: 7381614925751371120, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -4443,21 +4480,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6331024}
     m_Modifications:
-    - target: {fileID: 2288034103872499858, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2388543920734891131, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388543920734891131, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2685727620805641385, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4717457910930720050, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4503,22 +4528,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 336892880}
-    - target: {fileID: 5971663306671035190, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6305073429644387790, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8552687499823954765, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 336892880}
-    - target: {fileID: 8552687499823954765, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Resume
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
