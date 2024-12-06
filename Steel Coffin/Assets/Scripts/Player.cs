@@ -41,6 +41,9 @@ public class Player : MonoBehaviour
     public Transform Flashy;
     public TextMeshProUGUI InteractText;
 
+    public GameObject DeathScreen;
+    private bool Dead = false;
+
 
     GameManager Gm;
 
@@ -51,11 +54,21 @@ public class Player : MonoBehaviour
         OGLayer = gameObject.layer;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        if (DeathScreen != null)
+        {
+            DeathScreen.SetActive(false);
+        }
     }
 
 
     void Update()
     {
+        if (Dead)
+            return;
+
+       
+
         if (!Hidden)
         {
             // Handle input
@@ -113,7 +126,7 @@ public class Player : MonoBehaviour
 
         //FlashLight Toggle
 
-        if (Input.GetKey(KeyCode.F) && FlashPickedup == true)
+        if (Input.GetKeyDown(KeyCode.F) && FlashPickedup == true)
         {
             if (FlashLight != null)
             {
@@ -131,6 +144,8 @@ public class Player : MonoBehaviour
 
     private void ToggleHide()
     {
+
+       
         Hidden = !Hidden;
 
         if (Hidden)
@@ -153,8 +168,15 @@ public class Player : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
+
+        if (other.CompareTag("Enemy"))
+        {
+            Die();
+        }
+
         if (other.CompareTag("Player"))
         {
             if (DropFloor != null)
@@ -180,6 +202,21 @@ public class Player : MonoBehaviour
         }
 
         
+    }
+
+    void Die()
+    {
+        Dead = true;
+        Rib.linearVelocity = Vector3.zero;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        if (DeathScreen != null)
+        {
+            DeathScreen.SetActive(true);
+        }
+
+        Time.timeScale = 0f;
     }
 
     private void OnTriggerExit(Collider other)

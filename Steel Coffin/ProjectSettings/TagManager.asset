@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickupItem
   - Flashlight
+  - Enemy
   layers:
   - Default
   - TransparentFX
