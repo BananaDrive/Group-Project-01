@@ -2578,6 +2578,16 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2733975762403276001, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
   m_PrefabInstance: {fileID: 658730995}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &658730999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1488431515735730219, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 658730995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &658731000 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8872173667098377350, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 658730995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &675714485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4395,6 +4405,26 @@ PrefabInstance:
       propertyPath: Key
       value: 
       objectReference: {fileID: 576382000}
+    - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: Flashy
+      value: 
+      objectReference: {fileID: 658731000}
+    - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: DropFloor
+      value: 
+      objectReference: {fileID: 658730999}
+    - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: FlashLight
+      value: 
+      objectReference: {fileID: 658730999}
+    - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: DeathScreen
+      value: 
+      objectReference: {fileID: 658730999}
+    - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: InteractText
+      value: 
+      objectReference: {fileID: 658730996}
     - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
       propertyPath: HideObject.Array.size
       value: 7
