@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
             {
                 FlashLight.transform.SetParent(transform);
                 FlashLight.transform.localPosition = new Vector3(0.5f, 0, 0.5f);
-                FlashLight.transform.localRotation = Quaternion.;
+                FlashLight.transform.localRotation = Quaternion.identity;
 
                 FlashPickedup = true;
 
