@@ -17,7 +17,7 @@ public class TeleporterScript : MonoBehaviour
 
     void Start()
     {
- 
+
         playerInventory = player.GetComponent<PlayerInventory>();
 
         if (playerInventory == null)
@@ -38,7 +38,7 @@ public class TeleporterScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if(islvl2)
+                if (islvl2)
                 {
                     Collider objectCollider = GetComponent<Collider>();
 
