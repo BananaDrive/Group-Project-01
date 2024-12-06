@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
+using UnityEngine.UI;
 
 public class TeleporterScript : MonoBehaviour
 {
@@ -8,16 +10,24 @@ public class TeleporterScript : MonoBehaviour
     public Transform player;
     public TextMeshProUGUI activateText;
     private PlayerInventory playerInventory;
+    public bool islvl2 = false;
+
+    public Image fadeImage;
+    public float fadeDuration = 1f;
 
     void Start()
     {
- 
+
         playerInventory = player.GetComponent<PlayerInventory>();
 
         if (playerInventory == null)
         {
             Debug.LogError("PlayerInventory component not found on player.");
         }
+
+
+        StartCoroutine(FadeIn());
+
     }
 
     void Update()
@@ -28,7 +38,19 @@ public class TeleporterScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                player.transform.position = teleportPos;
+                if (islvl2)
+                {
+                    Collider objectCollider = GetComponent<Collider>();
+
+                    if (objectCollider != null)
+                    {
+                        Destroy(objectCollider);
+                    }
+                }
+
+                StartCoroutine(FadeOut());
+
+                StartCoroutine(TP());
             }
         }
         else
@@ -36,4 +58,59 @@ public class TeleporterScript : MonoBehaviour
             activateText.gameObject.SetActive(false);
         }
     }
+
+    public IEnumerator FadeIn()
+    {
+        float elapsedTime = 0f;
+        Color color = fadeImage.color;
+        color.a = 1f;
+        fadeImage.color = color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            color.a = Mathf.Clamp01(1f - (elapsedTime / fadeDuration));
+            fadeImage.color = color;
+            yield return null;
+        }
+
+        color.a = 0f;
+        fadeImage.color = color;
+    }
+
+    public IEnumerator FadeOut()
+    {
+        float elapsedTime = 0f;
+        Color color = fadeImage.color;
+        color.a = 0f;
+        fadeImage.color = color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            color.a = Mathf.Clamp01(elapsedTime / fadeDuration);
+            fadeImage.color = color;
+            yield return null;
+        }
+
+        color.a = 1f;
+        fadeImage.color = color;
+        yield return new WaitForSeconds(2f);
+
+        StartCoroutine(FadeIn());
+    }
+
+    public IEnumerator TP()
+    {
+        yield return new WaitForSeconds(1f);
+
+        player.transform.position = teleportPos;
+    }
+
+    public void TriggerFadeOut()
+    {
+        StartCoroutine(FadeOut());
+    }
+
+
 }
