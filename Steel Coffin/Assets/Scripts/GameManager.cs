@@ -158,6 +158,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void ReturnTomenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void Paused()
     {
         Time.timeScale = 0;
