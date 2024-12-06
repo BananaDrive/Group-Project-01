@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8613203656320424529}
   - component: {fileID: 3011653318243053459}
   - component: {fileID: 4199054232137391384}
-  - component: {fileID: 7948214160531799175}
   - component: {fileID: 8014924242743063872}
+  - component: {fileID: 315865107961821365}
   m_Layer: 13
   m_Name: player
   m_TagString: Player
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rib: {fileID: 8014924242743063872}
   walk: 5
-  jump: 5
+  jump: 0
   Terrain:
     serializedVersion: 2
     m_Bits: 0
@@ -151,37 +151,12 @@ MonoBehaviour:
   Key: {fileID: 0}
   HasKey: 0
   DropFloor: {fileID: 0}
-  FlashLight: {fileID: 7602427576351531572}
+  FlashLight: {fileID: 0}
   FlashPickedup: 1
   FlashRadius: 3
-  Flashy: {fileID: 147539553645300142}
+  Flashy: {fileID: 0}
   InteractText: {fileID: 0}
---- !u!114 &7948214160531799175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259046402799098022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c653e6b84b6059488fb3d0bd93f89b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  hand: {fileID: 1613587806637299601}
-  pickupKey: 101
-  hotbarKeys: 310000003200000033000000
-  hotbarImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  pickupMessage: {fileID: 0}
-  currentSlot: 0
-  keyPickup: 0
+  DeathScreen: {fileID: 0}
 --- !u!54 &8014924242743063872
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -209,6 +184,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &315865107961821365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259046402799098022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c653e6b84b6059488fb3d0bd93f89b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: []
+  hand: {fileID: 1613587806637299601}
+  pickupKey: 101
+  hotbarKeys: 310000003200000033000000
+  hotbarImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pickupMessage: {fileID: 0}
+  currentSlot: 0
+  keyPickup: 0
 --- !u!1 &370018143936297583
 GameObject:
   m_ObjectHideFlags: 0
@@ -10328,10 +10326,5 @@ PrefabInstance:
 --- !u!4 &147539553645300142 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3628791212707428853, guid: 23b78e5f0b9a2f14786a308ec59e9bd1, type: 3}
-  m_PrefabInstance: {fileID: 3481322165245390939}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7602427576351531572 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6471984416598266479, guid: 23b78e5f0b9a2f14786a308ec59e9bd1, type: 3}
   m_PrefabInstance: {fileID: 3481322165245390939}
   m_PrefabAsset: {fileID: 0}

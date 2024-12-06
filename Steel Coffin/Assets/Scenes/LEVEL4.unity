@@ -1201,18 +1201,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: pickupMessage
+      value: 
+      objectReference: {fileID: 2090865312}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 349406199}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1609807424}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 349406198}
     - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
       propertyPath: Key
       value: 
       objectReference: {fileID: 242709475}
-    - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
-      propertyPath: Key2
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
-      propertyPath: jump
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
       propertyPath: Flashy
       value: 
@@ -1277,48 +1285,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7948214160531799175, guid: 80577bf784ced244db10653683633c66, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 259046402799098022, guid: 80577bf784ced244db10653683633c66, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 869594239}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80577bf784ced244db10653683633c66, type: 3}
 --- !u!4 &869594230 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8798702858336970457, guid: 80577bf784ced244db10653683633c66, type: 3}
   m_PrefabInstance: {fileID: 869594229}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &869594231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 259046402799098022, guid: 80577bf784ced244db10653683633c66, type: 3}
-  m_PrefabInstance: {fileID: 869594229}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &869594239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 869594231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c653e6b84b6059488fb3d0bd93f89b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: []
-  hand: {fileID: 1741455976}
-  pickupKey: 101
-  hotbarKeys: 310000003200000033000000
-  hotbarImages:
-  - {fileID: 349406199}
-  - {fileID: 1609807424}
-  - {fileID: 349406198}
-  pickupMessage: {fileID: 2090865312}
-  currentSlot: 0
-  keyPickup: 0
 --- !u!1 &927589140
 GameObject:
   m_ObjectHideFlags: 0
@@ -3389,11 +3365,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690515933}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1741455976 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1613587806637299601, guid: 80577bf784ced244db10653683633c66, type: 3}
-  m_PrefabInstance: {fileID: 869594229}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1775067860
 GameObject:
   m_ObjectHideFlags: 0

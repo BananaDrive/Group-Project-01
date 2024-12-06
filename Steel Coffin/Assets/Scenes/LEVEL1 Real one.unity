@@ -3133,6 +3133,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+--- !u!1 &6556640230500447079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1488431515735730219, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 6556640230500447078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6564931360406079551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3330,31 +3335,31 @@ PrefabInstance:
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: Play
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6556640230500447079}
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: Quit
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6556640230500447079}
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: NewGame
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6556640230500447079}
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: GameData
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6556640230500447079}
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: LoadGame
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6556640230500447079}
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: MainMenu
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6556640230500447079}
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: Settings
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6556640230500447079}
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: PauseMenu
       value: 
@@ -3362,7 +3367,7 @@ PrefabInstance:
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: StartOptions
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6556640230500447079}
     - target: {fileID: 7381614925751371120, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: m_Name
       value: GameManager
