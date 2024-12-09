@@ -20137,6 +20137,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 856023595c5ca3a479847e2017516414, type: 3}
   m_PrefabInstance: {fileID: 797858340}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &798734295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798734296}
+  m_Layer: 0
+  m_Name: placeholder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &798734296
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798734295}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 819.9551, y: 775.4901, z: -1095.0505}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &799523237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 856023595c5ca3a479847e2017516414, type: 3}
@@ -45267,6 +45298,14 @@ MonoBehaviour:
   SettingsOpen: 0
   NewGame: {fileID: 2041441798}
   LoadGame: {fileID: 260831434}
+  Note1: {fileID: 798734295}
+  Note2: {fileID: 798734295}
+  Note3: {fileID: 798734295}
+  Player: {fileID: 798734296}
+  NoteRange: 3
+  NoteText: {fileID: 798734295}
+  NoteText1: {fileID: 798734295}
+  NoteText2: {fileID: 798734295}
 --- !u!4 &1920043697
 Transform:
   m_ObjectHideFlags: 0
@@ -50057,3 +50096,4 @@ SceneRoots:
   - {fileID: 1920043697}
   - {fileID: 1499151988}
   - {fileID: 1173991759}
+  - {fileID: 798734296}
