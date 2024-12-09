@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     public GameObject NoteText;
     public GameObject NoteText1;
     public GameObject NoteText2;
-    private bool NoteActive = false;
+
 
     private GameObject activeNoteText;
 
