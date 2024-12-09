@@ -31,6 +31,13 @@ public class GameManager : MonoBehaviour
     public Transform Player;
     public float NoteRange = 3;
 
+    public GameObject NoteText;
+    public GameObject NoteText1;
+    public GameObject NoteText2;
+    private bool NoteActive = false;
+
+    private GameObject activeNoteText;
+
     // Singleton Instance
     public static GameManager Instance;
 
@@ -50,6 +57,19 @@ public class GameManager : MonoBehaviour
         StartOptions.SetActive(false);
 
         StartOptions1 = false;
+
+        if (NoteText != null)
+        {
+            NoteText.SetActive(false);
+        }
+        if (NoteText1 != null)
+        {
+            NoteText1.SetActive(false);
+        }
+        if (NoteText2 != null)
+        {
+            NoteText2.SetActive(false);
+        }
     }
 
     void Update()
@@ -67,8 +87,54 @@ public class GameManager : MonoBehaviour
             Paused();
         }
 
-        if (Player.transform <= NoteRange)
+        NoteInteract();
     }
+
+
+    private void NoteInteract()
+    {
+        
+        HandleNoteInteraction(Note1, NoteText, ref activeNoteText);
+        HandleNoteInteraction(Note2, NoteText1, ref activeNoteText);
+        HandleNoteInteraction(Note3, NoteText2, ref activeNoteText);
+    }
+
+    private void HandleNoteInteraction(GameObject note, GameObject noteText, ref GameObject currentActiveNoteText)
+    {
+        float distanceToNote = Vector3.Distance(Player.position, note.transform.position);
+
+        if (distanceToNote <= NoteRange)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                
+                if (currentActiveNoteText != null && currentActiveNoteText != noteText)
+                {
+                    currentActiveNoteText.SetActive(false);
+                }
+
+                
+                bool isActive = !noteText.activeSelf;
+                noteText.SetActive(isActive);
+
+                
+                currentActiveNoteText = isActive ? noteText : null;
+            }
+        }
+        else if (noteText.activeSelf)
+        {
+            
+            noteText.SetActive(false);
+            if (currentActiveNoteText == noteText)
+            {
+                currentActiveNoteText = null;
+            }
+        }
+    }
+
+
+
+
 
 
     public void PauseScreen()
