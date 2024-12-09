@@ -24,6 +24,13 @@ public class GameManager : MonoBehaviour
     public GameObject NewGame;
     public GameObject LoadGame;
 
+    //NOTES
+    public GameObject Note1;
+    public GameObject Note2;
+    public GameObject Note3;
+    public Transform Player;
+    public float NoteRange = 3;
+
     // Singleton Instance
     public static GameManager Instance;
 
@@ -59,6 +66,8 @@ public class GameManager : MonoBehaviour
         {
             Paused();
         }
+
+        if (Player.transform <= NoteRange)
     }
 
 
