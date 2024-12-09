@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
     public GameObject NoteText1;
     public GameObject NoteText2;
 
-
     private GameObject activeNoteText;
 
     // Singleton Instance
