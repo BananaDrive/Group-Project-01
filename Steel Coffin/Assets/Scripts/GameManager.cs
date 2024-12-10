@@ -176,16 +176,12 @@ public class GameManager : MonoBehaviour
         {
             Settings.SetActive(false);
             SettingsOpen = false;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1;
         }
         else
         {
             Settings.SetActive(true);
             SettingsOpen = true;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
         }
     }
