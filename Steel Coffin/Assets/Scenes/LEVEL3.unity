@@ -4160,6 +4160,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113245732}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1229033602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 110370928282693609, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 658730995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1307115406
 GameObject:
   m_ObjectHideFlags: 0
@@ -4488,7 +4493,7 @@ PrefabInstance:
     - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
       propertyPath: DeathScreen
       value: 
-      objectReference: {fileID: 658730999}
+      objectReference: {fileID: 1229033602}
     - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
       propertyPath: InteractText
       value: 
