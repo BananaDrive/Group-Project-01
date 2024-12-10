@@ -168,12 +168,14 @@ public class GameManager : MonoBehaviour
         if (SettingsOpen)
         {
             Settings.SetActive(false);
+            MainMenu.SetActive(true);
             SettingsOpen = false;
             Time.timeScale = 1;
         }
         else
         {
             Settings.SetActive(true);
+            MainMenu.SetActive(false);
             SettingsOpen = true;
             Time.timeScale = 0;
         }
