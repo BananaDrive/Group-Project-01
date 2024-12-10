@@ -11,6 +11,7 @@ public class TeleporterScript : MonoBehaviour
     public TextMeshProUGUI activateText;
     private PlayerInventory playerInventory;
     public bool islvl2 = false;
+    public bool islvl4 = false;
 
     public Image fadeImage;
     public float fadeDuration = 1f;
@@ -48,7 +49,12 @@ public class TeleporterScript : MonoBehaviour
                     }
                 }
 
-                StartCoroutine(FadeOut());
+                if (islvl4)
+                {
+                    //start cutscene
+                }
+
+                    StartCoroutine(FadeOut());
 
                 StartCoroutine(TP());
             }

@@ -50,8 +50,9 @@ public class PlayerInventory : MonoBehaviour
                     {
                         Debug.Log("Pickup item detected: " + item.name);
 
-                        if (Input.GetKeyDown(pickupKey))
+                        if (Input.GetKeyDown(KeyCode.E))
                         {
+
                             AddToInventory(item);
                             CheckForKeys();
                         }
