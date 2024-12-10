@@ -3883,6 +3883,18 @@ PrefabInstance:
       propertyPath: pickupMessage
       value: 
       objectReference: {fileID: 1294425157}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1415250353}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1360138779}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 131407611}
     - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
       propertyPath: Key
       value: 

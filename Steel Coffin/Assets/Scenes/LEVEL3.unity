@@ -2773,6 +2773,50 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &723095729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4576171499125901331, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 658730995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &723095730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6708811802556308904, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 658730995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &723095731 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1361588030291792984, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 658730995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &723095732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6016831119925100599, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 658730995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &727537997
 GameObject:
   m_ObjectHideFlags: 0
@@ -4158,6 +4202,14 @@ MonoBehaviour:
   SettingsOpen: 0
   NewGame: {fileID: 2085736491}
   LoadGame: {fileID: 907715504}
+  Note1: {fileID: 0}
+  Note2: {fileID: 0}
+  Note3: {fileID: 0}
+  Player: {fileID: 0}
+  NoteRange: 3
+  NoteText: {fileID: 0}
+  NoteText1: {fileID: 0}
+  NoteText2: {fileID: 0}
 --- !u!4 &1307115408
 Transform:
   m_ObjectHideFlags: 0
@@ -4401,6 +4453,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: pickupMessage
+      value: 
+      objectReference: {fileID: 723095732}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 723095731}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 723095730}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 723095729}
     - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
       propertyPath: Key
       value: 

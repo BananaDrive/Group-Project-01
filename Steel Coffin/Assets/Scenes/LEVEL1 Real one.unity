@@ -2941,6 +2941,18 @@ PrefabInstance:
       propertyPath: pickupMessage
       value: 
       objectReference: {fileID: 533287880}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1797464202}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 239694318}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 508655298}
     - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
       propertyPath: Key
       value: 
@@ -3382,6 +3394,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1488431515735730219, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
   m_PrefabInstance: {fileID: 6556640230500447078}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &6556640230500447080 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8872173667098377350, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 6556640230500447078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6564931360406079551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3587,6 +3604,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6556640230500447079}
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: Note1
+      value: 
+      objectReference: {fileID: 6556640230500447079}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: Note2
+      value: 
+      objectReference: {fileID: 6556640230500447079}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: Note3
+      value: 
+      objectReference: {fileID: 6556640230500447079}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 6556640230500447080}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: NewGame
       value: 
       objectReference: {fileID: 6556640230500447079}
@@ -3603,7 +3636,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6556640230500447079}
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: NoteText
+      value: 
+      objectReference: {fileID: 6556640230500447079}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
       propertyPath: Settings
+      value: 
+      objectReference: {fileID: 6556640230500447079}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: NoteText1
+      value: 
+      objectReference: {fileID: 6556640230500447079}
+    - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
+      propertyPath: NoteText2
       value: 
       objectReference: {fileID: 6556640230500447079}
     - target: {fileID: 4022441954834439274, guid: 879c4c7c67aad4d4a97f83f62940532a, type: 3}
