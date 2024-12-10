@@ -51,7 +51,7 @@ public class TeleporterScript : MonoBehaviour
 
                 if (islvl4)
                 {
-                    //start cutscene
+                    //start cutscene IN GM
                 }
 
                     StartCoroutine(FadeOut());
