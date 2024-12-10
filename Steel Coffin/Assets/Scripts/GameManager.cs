@@ -17,12 +17,9 @@ public class GameManager : MonoBehaviour
     public GameObject GameData;
     public GameObject Quit;
     public GameObject Play;
-    public GameObject StartOptions;
-    public bool StartOptions1;
     public GameObject Settings;
     public bool SettingsOpen = false;
-    public GameObject NewGame;
-    public GameObject LoadGame;
+   
 
     //NOTES
     public GameObject Note1;
@@ -52,10 +49,6 @@ public class GameManager : MonoBehaviour
             playerData = GameObject.Find("player").GetComponent<Player>();
             playerInventory = GameObject.Find("player").GetComponent<PlayerInventory>();
         }
-
-        StartOptions.SetActive(false);
-
-        StartOptions1 = false;
 
         if (NoteText != null)
         {
@@ -210,22 +203,6 @@ public class GameManager : MonoBehaviour
     {
         MainMenu.SetActive(true);
         GameData.SetActive(false);
-    }
-
-    public void ButtonsToStart()
-    {
-        if (StartOptions1)
-        {
-            StartOptions.SetActive(false);
-            StartOptions1 = false;
-        }
-        else
-        {
-            StartOptions.SetActive(true);
-            StartOptions1 = true;
-        }
-       
-
     }
 
     public void ReturnTomenu()
