@@ -823,6 +823,14 @@ MonoBehaviour:
   SettingsOpen: 0
   NewGame: {fileID: 1218969559}
   LoadGame: {fileID: 1218969559}
+  Note1: {fileID: 1218969559}
+  Note2: {fileID: 1218969559}
+  Note3: {fileID: 1218969559}
+  Player: {fileID: 1218969560}
+  NoteRange: 3
+  NoteText: {fileID: 1218969559}
+  NoteText1: {fileID: 1218969559}
+  NoteText2: {fileID: 1218969559}
 --- !u!4 &622268260
 Transform:
   m_ObjectHideFlags: 0

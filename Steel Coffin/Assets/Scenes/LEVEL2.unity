@@ -3883,6 +3883,18 @@ PrefabInstance:
       propertyPath: pickupMessage
       value: 
       objectReference: {fileID: 1294425157}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1415250353}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1360138779}
+    - target: {fileID: 315865107961821365, guid: 80577bf784ced244db10653683633c66, type: 3}
+      propertyPath: 'hotbarImages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 131407611}
     - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
       propertyPath: Key
       value: 
@@ -3902,7 +3914,7 @@ PrefabInstance:
     - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
       propertyPath: DeathScreen
       value: 
-      objectReference: {fileID: 92946451}
+      objectReference: {fileID: 1294425159}
     - target: {fileID: 4199054232137391384, guid: 80577bf784ced244db10653683633c66, type: 3}
       propertyPath: InteractText
       value: 
@@ -4964,6 +4976,11 @@ MonoBehaviour:
 --- !u!224 &1294425158 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8872173667098377350, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 1294425155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1294425159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 110370928282693609, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
   m_PrefabInstance: {fileID: 1294425155}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1342846337
