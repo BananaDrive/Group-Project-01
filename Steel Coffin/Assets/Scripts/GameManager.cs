@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     // UI Elements
     public GameObject PauseMenu;
     public GameObject MainMenu;
-    public GameObject GameData;
     public GameObject Quit;
     public GameObject Play;
     public GameObject Settings;
@@ -193,18 +192,6 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(nextSceneIndex);
             }
         }
-    }
-
-    public void LoadGameData()
-    {
-        GameData.SetActive(true);
-        MainMenu.SetActive(false);
-    }
-
-    public void MainMenuReload()
-    {
-        MainMenu.SetActive(true);
-        GameData.SetActive(false);
     }
 
     public void ReturnTomenu()
