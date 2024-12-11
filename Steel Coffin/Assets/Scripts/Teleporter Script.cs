@@ -13,6 +13,8 @@ public class TeleporterScript : MonoBehaviour
     public bool islvl2 = false;
     public bool islvl4 = false;
 
+    public GameManager GM;
+
     public Image fadeImage;
     public float fadeDuration = 1f;
 
@@ -51,7 +53,7 @@ public class TeleporterScript : MonoBehaviour
 
                 if (islvl4)
                 {
-                    //start cutscene IN GM
+                    GM.Completed();
                 }
 
                     StartCoroutine(FadeOut());

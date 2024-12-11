@@ -43,6 +43,12 @@ public class GameManager : MonoBehaviour
     //Quality Settings
     public TMP_Dropdown Quality;
 
+    [Header("ForLevel4")]
+    public GameObject Choice;
+    public GameObject C1;
+    public GameObject C2;
+
+    public TeleporterScript TS;
 
     void Start()
     {
@@ -69,6 +75,14 @@ public class GameManager : MonoBehaviour
         SetQuality(savedQualityLevel);
 
         Quality.value = savedQualityLevel;
+
+        if (TS.islvl4)
+        {
+            Choice.SetActive(false);
+            C1.SetActive(false);
+            C2.SetActive(false);
+        }
+        
     }
 
     void Update()
@@ -139,9 +153,21 @@ public class GameManager : MonoBehaviour
     }
 
 
+     
+    public void Completed()
+    {
+        Choice.SetActive(true);
+    }
 
+    public void C1A()
+    {
+        C1.SetActive(true);
+    }
 
-
+    public void C2A()
+    {
+        C2.SetActive(true);
+    }
 
     public void PauseScreen()
     {
