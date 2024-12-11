@@ -140,7 +140,17 @@ public class GameManager : MonoBehaviour
 
 
 
+    public void PauseSettingOpen()
+    {
+        Settings.SetActive(true);
+        PauseMenu.SetActive(false);
+    }
 
+    public void PauseSettingClose()
+    {
+        Settings.SetActive(false);
+        PauseMenu.SetActive(true);
+    }
 
 
     public void PauseScreen()
