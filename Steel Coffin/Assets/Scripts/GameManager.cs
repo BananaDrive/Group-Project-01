@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
     Player playerData;
     PlayerInventory playerInventory;
 
+    //Quality Settings
+    public TMP_Dropdown Quality;
+
 
     void Start()
     {
@@ -61,6 +64,11 @@ public class GameManager : MonoBehaviour
         {
             NoteText2.SetActive(false);
         }
+
+        int savedQualityLevel = PlayerPrefs.GetInt("QualityLevel", QualitySettings.GetQualityLevel());
+        SetQuality(savedQualityLevel);
+
+        Quality.value = savedQualityLevel;
     }
 
     void Update()
@@ -81,6 +89,13 @@ public class GameManager : MonoBehaviour
         NoteInteract();
     }
 
+    public void SetQuality(int QualityLvl)
+    {
+        QualitySettings.SetQualityLevel(QualityLvl);
+
+        PlayerPrefs.SetInt("QualityLevel", QualityLvl);
+        PlayerPrefs.Save();
+    }
 
     private void NoteInteract()
     {
