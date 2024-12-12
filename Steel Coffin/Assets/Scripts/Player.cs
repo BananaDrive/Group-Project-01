@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
 
     public GameObject DeathScreen;
     private bool Dead = false;
+    public GameObject Inventory;
 
 
     GameManager Gm;
@@ -214,6 +215,7 @@ public class Player : MonoBehaviour
         if (DeathScreen != null)
         {
             DeathScreen.SetActive(true);
+            Inventory.SetActive(false);
         }
 
         Time.timeScale = 0f;
