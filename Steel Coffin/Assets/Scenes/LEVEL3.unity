@@ -2517,34 +2517,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1307115407}
-    - target: {fileID: 863132831300384919, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PauseSettingClose
-      objectReference: {fileID: 0}
     - target: {fileID: 2388543920734891131, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388543920734891131, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2685727620805641385, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158902118659262567, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4496111772741443741, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1307115407}
-    - target: {fileID: 4496111772741443741, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetQuality
-      objectReference: {fileID: 0}
     - target: {fileID: 4717457910930720050, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 476.73248
@@ -2585,46 +2565,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5162439533504258685, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5971663306671035190, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5971663306671035190, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1307115407}
-    - target: {fileID: 5971663306671035190, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
-      objectReference: {fileID: 0}
     - target: {fileID: 6253759076864628376, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1307115407}
-    - target: {fileID: 6253759076864628376, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PauseSettingOpen
-      objectReference: {fileID: 0}
-    - target: {fileID: 6305073429644387790, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7610399152396358941, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8552687499823954765, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1307115407}
-    - target: {fileID: 8552687499823954765, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Resume
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
