@@ -47,8 +47,6 @@ public class GameManager : MonoBehaviour
     public GameObject Choice;
     public GameObject C1;
     public GameObject C2;
-    public GameObject A1;
-    public GameObject A2;
 
     public TeleporterScript TS;
 
@@ -83,8 +81,6 @@ public class GameManager : MonoBehaviour
             Choice.SetActive(false);
             C1.SetActive(false);
             C2.SetActive(false);
-            A1.SetActive(false);
-            A2.SetActive(false);
         }
         
     }
@@ -176,28 +172,17 @@ public class GameManager : MonoBehaviour
     public void Completed()
     {
         Choice.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        Time.timeScale = 0;
-        A1.SetActive(true);
-        A2.SetActive(true);
     }
 
     public void C1A()
     {
         C1.SetActive(true);
-        Choice.SetActive(false);
-        A1.SetActive(false);
-        A2.SetActive(false);
     }
    
 
     public void C2A()
     {
         C2.SetActive(true);
-        Choice.SetActive(false);
-        A1.SetActive(false);
-        A2.SetActive(false);
     }
 
     public void PauseScreen()
