@@ -24,11 +24,15 @@ public class Distractorscript : MonoBehaviour
 
     private void Start()
     {
-        Gm = gameObject.GetComponent<GameManager>();
+        Gm = FindObjectOfType<GameManager>();
     }
     void Update()
     {
-       
+        if (Gm != null && Gm.IsPaused)
+        {
+            return;
+        }
+
             if (Input.GetMouseButtonDown(0) && currentdistract > 0 && !isthrowing)
             {
                 distracttriggered = true;
@@ -42,7 +46,7 @@ public class Distractorscript : MonoBehaviour
                 ThrowGrenadeR();
                 isthrowing = true;
             }
-
+        
         
     }
 

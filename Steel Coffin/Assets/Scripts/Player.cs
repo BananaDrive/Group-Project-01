@@ -68,8 +68,6 @@ public class Player : MonoBehaviour
         if (Dead)
             return;
 
-       
-
         if (!Hidden)
         {
             // Handle input
