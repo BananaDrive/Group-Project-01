@@ -154,6 +154,21 @@ public class GameManager : MonoBehaviour
 
 
      
+    
+
+    public void PauseSettingOpen()
+    {
+        Settings.SetActive(true);
+        PauseMenu.SetActive(false);
+    }
+
+    public void PauseSettingClose()
+    {
+        Settings.SetActive(false);
+        PauseMenu.SetActive(true);
+    }
+
+
     public void Completed()
     {
         Choice.SetActive(true);
@@ -163,6 +178,7 @@ public class GameManager : MonoBehaviour
     {
         C1.SetActive(true);
     }
+   
 
     public void C2A()
     {
