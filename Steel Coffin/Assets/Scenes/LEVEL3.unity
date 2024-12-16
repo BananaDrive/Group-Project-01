@@ -852,8 +852,14 @@ MonoBehaviour:
   activateText: {fileID: 658730996}
   islvl2: 0
   islvl4: 0
+  GM: {fileID: 0}
   fadeImage: {fileID: 1451330604}
   fadeDuration: 1
+--- !u!1 &181185150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7653343899688291256, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 658730995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &189654408
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,6 +3077,7 @@ MonoBehaviour:
   activateText: {fileID: 658730996}
   islvl2: 0
   islvl4: 0
+  GM: {fileID: 0}
   fadeImage: {fileID: 1451330604}
   fadeDuration: 1
 --- !u!1 &823228732
@@ -4277,15 +4284,19 @@ MonoBehaviour:
   Play: {fileID: 2085736491}
   Settings: {fileID: 744591704}
   SettingsOpen: 0
-  Note1: {fileID: 0}
+  Note1: {fileID: 1399309999}
   Note2: {fileID: 0}
   Note3: {fileID: 0}
   Player: {fileID: 1595603707}
   NoteRange: 3
-  NoteText: {fileID: 0}
+  NoteText: {fileID: 181185150}
   NoteText1: {fileID: 0}
   NoteText2: {fileID: 0}
   Quality: {fileID: 744591703}
+  Choice: {fileID: 0}
+  C1: {fileID: 0}
+  C2: {fileID: 0}
+  TS: {fileID: 0}
 --- !u!4 &1307115408
 Transform:
   m_ObjectHideFlags: 0
