@@ -54,13 +54,16 @@ public class EnemyMove : MonoBehaviour
         float closestDistance = float.MaxValue; 
         Transform closestPlayer = null;
 
-        
+
+        int playerLayer = LayerMask.NameToLayer("player"); 
+
         foreach (Transform player in players)
         {
-            
+            if (player.gameObject.layer != playerLayer)
+                continue;
+
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-            
             if (distanceToPlayer <= vision && HasLineOfSight(player))
             {
                 if (distanceToPlayer < closestDistance)
@@ -70,6 +73,7 @@ public class EnemyMove : MonoBehaviour
                 }
             }
         }
+
 
         if (closestPlayer != null)
         {

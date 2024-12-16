@@ -102,40 +102,7 @@ public class Player : MonoBehaviour
             sprintMode = false;
         }
 
-        //FlashlightPickup
-        if (Vector3.Distance(Flashy.position, transform.position) <= FlashRadius)
-        {
-            InteractText.gameObject.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                FlashLight.transform.SetParent(transform);
-                FlashLight.transform.localPosition = new Vector3(0.5f, 0, 0.5f);
-                FlashLight.transform.localRotation = Quaternion.identity;
-
-                FlashPickedup = true;
-
-                InteractText.gameObject.SetActive(false);
-            }
-        }
-        else
-        {
-            InteractText.gameObject.SetActive(false);
-        }
-
-        //FlashLight Toggle
-
-        if (Input.GetKeyDown(KeyCode.F) && FlashPickedup == true)
-        {
-            if (FlashLight != null)
-            {
-                Light FlashLightLight = FlashLight.GetComponentInChildren<Light>();
-                if (FlashLightLight != null)
-                {
-                    FlashLightLight.enabled = !FlashLightLight.enabled;
-                }
-            }
-        }
+       
 
     }
 
