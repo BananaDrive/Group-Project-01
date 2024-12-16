@@ -59,6 +59,8 @@ public class Distractorscript : MonoBehaviour
 
         projectile.GetComponent<Rigidbody>().mass = 0.01f;
 
+        SphereCollider collider = projectile.AddComponent<SphereCollider>();
+
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
 
         Destroy(projectile.GetComponent<Distractorscript>());
@@ -86,6 +88,8 @@ public class Distractorscript : MonoBehaviour
         projectile.AddComponent<Rigidbody>();
 
         projectile.GetComponent<Rigidbody>().mass = 0.01f;
+
+        SphereCollider collider = projectile.AddComponent<SphereCollider>();
 
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
 
