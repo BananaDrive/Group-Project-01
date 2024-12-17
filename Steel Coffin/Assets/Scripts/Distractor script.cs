@@ -24,7 +24,9 @@ public class Distractorscript : MonoBehaviour
 
     private void Start()
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         Gm = FindObjectOfType<GameManager>();
+#pragma warning restore CS0618 // Type or member is obsolete
     }
     void Update()
     {
