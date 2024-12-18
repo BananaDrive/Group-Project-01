@@ -207,7 +207,7 @@ public class Player : MonoBehaviour
             Inventory.SetActive(false);
         }
 
-        Gm.IsPaused = true;
+        
         Time.timeScale = 0f;
     }
 
