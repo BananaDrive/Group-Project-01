@@ -37,17 +37,17 @@ public class Level1Tutorial : MonoBehaviour
 
         if (Tut == 3)
         {
-            TutText.text = "there is a shack to your right!";
+            TutText.text = "there is a shack over there";
         }
 
         if (Tut == 4)
         {
-            TutText.text = "press E to hide in the dumpster (red cube)";
+            TutText.text = "press E to hide in the dumpster (you can also hide in cabinets";
         }
 
         if (Tut == 5)
         {
-            TutText.text ="This is the end of the tutorial, oh look, a abandon hospital to your right";
+            TutText.text ="This is the end of the tutorial, happy Exploring";
         }
 
         if (Tut == 6)
