@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     private bool Dead = false;
     public GameObject Inventory;
 
+    private bool isFacingRight = true;
 
     GameManager Gm;
 
@@ -84,6 +85,8 @@ public class Player : MonoBehaviour
 
             Vector3 moveDirection = new Vector3(input.x * currentSpeed, Rib.linearVelocity.y, input.y * currentSpeed);
             Rib.linearVelocity = moveDirection;
+
+            HandleSpriteFlip(input.x);
         }
 
         if (Input.GetKeyDown(KeyCode.E) && canHide && currentHideObject != null)
@@ -104,6 +107,27 @@ public class Player : MonoBehaviour
 
        
 
+    }
+
+    private void HandleSpriteFlip(float horizontalInput)
+    {
+        if (horizontalInput > 0 && !isFacingRight)
+        {
+            Flip();
+        }
+        else if (horizontalInput < 0 && isFacingRight)
+        {
+            Flip();
+        }
+    }
+
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 
 
@@ -183,6 +207,7 @@ public class Player : MonoBehaviour
             Inventory.SetActive(false);
         }
 
+        Gm.IsPaused = true;
         Time.timeScale = 0f;
     }
 

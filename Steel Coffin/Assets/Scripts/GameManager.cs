@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     // Player Data
     Player playerData;
     PlayerInventory playerInventory;
+    public GameObject Inventory;
 
     //Quality Settings
     public TMP_Dropdown Quality;
@@ -89,19 +90,21 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (IsPaused == false)
         {
-            if (!ismenu)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                PauseScreen();
+                if (!ismenu)
+                {
+                    PauseScreen();
+                }
+            }
+
+            if (IsPaused)
+            {
+                Paused();
             }
         }
-
-        if(IsPaused)
-        {
-            Paused();
-        }
-
         
     }
 
@@ -113,18 +116,11 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    
-
-   
-
-
-     
-    
-
     public void PauseSettingOpen()
     {
         Settings.SetActive(true);
         PauseMenu.SetActive(false);
+        
     }
 
     public void PauseSettingClose()
@@ -157,6 +153,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
+        Inventory.SetActive(false);
     }
 
     public void Resume()
@@ -166,6 +163,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Inventory.SetActive(true);
     }
 
     public void LoadLevel(int sceneID)

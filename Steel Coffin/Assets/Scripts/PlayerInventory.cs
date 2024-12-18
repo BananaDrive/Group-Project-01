@@ -5,8 +5,8 @@ using TMPro;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public List<GameObject> inventory = new List<GameObject>(3); 
-    public Transform hand; 
+    public List<GameObject> inventory = new List<GameObject>(3);
+    public Transform hand;
     public KeyCode pickupKey = KeyCode.E;
     public KeyCode[] hotbarKeys;
     public Image[] hotbarImages;
@@ -16,10 +16,9 @@ public class PlayerInventory : MonoBehaviour
 
     void Start()
     {
-        hotbarKeys = new KeyCode[3] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3};
+        hotbarKeys = new KeyCode[3] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3 };
 
         inventory = new List<GameObject>(new GameObject[3]);
-
     }
 
     void Update()
@@ -50,20 +49,13 @@ public class PlayerInventory : MonoBehaviour
                     {
                         Debug.Log("Pickup item detected: " + item.name);
 
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-
-                            AddToInventory(item);
-                            CheckForKeys();
-                        }
+                        AddToInventory(item);
+                        CheckForKeys();
                     }
                 }
             }
         }
     }
-
-
-
 
     void AddToInventory(GameObject item)
     {
@@ -73,14 +65,12 @@ public class PlayerInventory : MonoBehaviour
             {
                 inventory[i] = item;
                 item.SetActive(false);
+
                 UpdateHotbarUI();
-                
-                
+                ShowItemImage(item.name); 
                 return;
             }
         }
-       
-
     }
 
     void HandleHotbarSwitch()
@@ -103,7 +93,21 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-
+    void ShowItemImage(string itemName)
+    {
+        switch (itemName)
+        {
+            case "Key1":
+                hotbarImages[0].gameObject.SetActive(true);
+                break;
+            case "Key2":
+                hotbarImages[1].gameObject.SetActive(true); 
+                break;
+            case "Key3":
+                hotbarImages[2].gameObject.SetActive(true);
+                break;
+        }
+    }
 
     void CheckForKeys()
     {

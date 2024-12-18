@@ -29,6 +29,8 @@ public class EnemyMove : MonoBehaviour
     private bool isWaiting;
     private float waitTimer;
 
+    private Quaternion fixedRotor;
+
     void Start()
     {
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -44,10 +46,13 @@ public class EnemyMove : MonoBehaviour
         {
             roamCenter = transform.position;
         }
+
+        fixedRotor = transform.rotation;
     }
 
     void Update()
     {
+        transform.rotation = fixedRotor;
         
         players = GameObject.FindGameObjectsWithTag("Player").Select(player => player.transform).ToArray();
 

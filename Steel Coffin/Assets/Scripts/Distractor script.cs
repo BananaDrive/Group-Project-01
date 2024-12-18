@@ -16,18 +16,20 @@ public class Distractorscript : MonoBehaviour
     public bool isthrowing = false;
     public float throwrate = 2;
     public bool canthrow = true;
-    public GameObject AmountHeld;
+    public TextMeshProUGUI AmountHeld;
 
     public bool distracttriggered = false;
     GameManager Gm;
 
-
     private void Start()
     {
-#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 
         Gm = FindObjectOfType<GameManager>();
-#pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning restore CS0618 
+
+        
     }
+
     void Update()
     {
         if (Gm != null && Gm.IsPaused)
@@ -35,48 +37,38 @@ public class Distractorscript : MonoBehaviour
             return;
         }
 
-            if (Input.GetMouseButtonDown(0) && currentdistract > 0 && !isthrowing)
-            {
-                distracttriggered = true;
-                ThrowGrenadeL();
-                isthrowing = true;
-            }
+        if (Input.GetMouseButtonDown(0) && currentdistract > 0 && !isthrowing)
+        {
+            distracttriggered = true;
+            ThrowGrenadeL();
+            isthrowing = true;
+        }
 
-            if (Input.GetMouseButtonDown(1) && currentdistract > 0 && !isthrowing)
-            {
-                distracttriggered = true;
-                ThrowGrenadeR();
-                isthrowing = true;
-            }
-        
-        
+        if (Input.GetMouseButtonDown(1) && currentdistract > 0 && !isthrowing)
+        {
+            distracttriggered = true;
+            ThrowGrenadeR();
+            isthrowing = true;
+        }
+
+        AmountHeld.text = "Cracklers: " + currentdistract + "/" + maxdistract;
     }
 
     private void ThrowGrenadeL()
     {
+        GameObject projectile = Instantiate(Distractprojectile, playerL.position, Quaternion.Euler(0, 0, 0));
 
-        GameObject projectile = Instantiate(Distractprojectile, playerL.position, playerL.rotation * Quaternion.Euler(90, 0, 0));
-        
-        projectile.AddComponent<Rigidbody>();
-
-        projectile.GetComponent<Rigidbody>().mass = 0.01f;
+        Rigidbody rb = projectile.AddComponent<Rigidbody>();
+        rb.mass = 0.01f;
 
         SphereCollider collider = projectile.AddComponent<SphereCollider>();
-
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
 
         Destroy(projectile.GetComponent<Distractorscript>());
-
-        if (rb != null)
-        {
-            rb.AddForce(-playerL.transform.right * throwForce);
-        }
-        else
-        {
-
-        }
+        rb.AddForce(-playerL.transform.right * throwForce);
 
         currentdistract--;
+        
 
         StartCoroutine(DestroyTime(projectile));
         StartCoroutine(CooldownThrow());
@@ -84,29 +76,19 @@ public class Distractorscript : MonoBehaviour
 
     private void ThrowGrenadeR()
     {
+        GameObject projectile = Instantiate(Distractprojectile, playerR.position, Quaternion.Euler(0, 0, 0));
 
-        GameObject projectile = Instantiate(Distractprojectile, playerR.position, playerR.rotation * Quaternion.Euler(90, 0, 0));
-        
-        projectile.AddComponent<Rigidbody>();
-
-        projectile.GetComponent<Rigidbody>().mass = 0.01f;
+        Rigidbody rb = projectile.AddComponent<Rigidbody>();
+        rb.mass = 0.01f;
 
         SphereCollider collider = projectile.AddComponent<SphereCollider>();
-
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
 
         Destroy(projectile.GetComponent<Distractorscript>());
-
-        if (rb != null)
-        {
-            rb.AddForce(playerR.transform.right * throwForce);
-        }
-        else
-        {
-
-        }
+        rb.AddForce(playerR.transform.right * throwForce);
 
         currentdistract--;
+        
 
         StartCoroutine(DestroyTime(projectile));
         StartCoroutine(CooldownThrow());
@@ -128,6 +110,4 @@ public class Distractorscript : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-
-    
 }
