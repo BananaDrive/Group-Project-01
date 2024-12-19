@@ -173,7 +173,7 @@ public class Player : MonoBehaviour
             if (currentHideObject != null)
             {
                 
-                Vector3 offset = currentHideObject.transform.forward * -2.0f; 
+                Vector3 offset = currentHideObject.transform.forward * 0f; 
                 transform.position = currentHideObject.transform.position + offset;
             }
         }
