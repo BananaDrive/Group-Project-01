@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using TMPro;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,7 +19,9 @@ public class GameManager : MonoBehaviour
     public GameObject Play;
     public GameObject Settings;
     public bool SettingsOpen = false;
-   
+
+    public Refforendanimate r;
+
 
     //NOTES
     public GameObject Note1;
@@ -52,6 +55,7 @@ public class GameManager : MonoBehaviour
     public GameObject C2;
     public GameObject C3;
     public GameObject C4;
+    public GameObject R1;
 
     public TeleporterScript TS;
 
@@ -62,7 +66,6 @@ public class GameManager : MonoBehaviour
             playerData = GameObject.Find("player").GetComponent<Player>();
             playerInventory = GameObject.Find("player").GetComponent<PlayerInventory>();
         }
-
         if (NoteText3 != null)
         {
             NoteText3.SetActive(false);
@@ -86,6 +89,7 @@ public class GameManager : MonoBehaviour
             Choice.SetActive(false);
             C1.SetActive(false);
             C2.SetActive(false);
+            R1.SetActive(false);
         }
         
     }
@@ -134,7 +138,7 @@ public class GameManager : MonoBehaviour
 
     public void Completed()
     {
-        Choice.SetActive(true);
+        StartCoroutine(EndAni());
     }
 
     public void C1A()
@@ -229,4 +233,78 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
     }
+
+    public IEnumerator EndAni()
+    {
+        R1.SetActive(true);
+
+        r.ref1.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref1.SetActive(false);
+        r.ref2.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref2.SetActive(true);
+        r.ref3.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref3.SetActive(false);
+        r.ref4.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref4.SetActive(true);
+        r.ref5.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref5.SetActive(false);
+        r.ref6.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref6.SetActive(true);
+        r.ref7.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref7.SetActive(false);
+        r.ref8.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref8.SetActive(true);
+        r.ref9.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref9.SetActive(false);
+        r.ref10.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref10.SetActive(true);
+        r.ref11.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref11.SetActive(false);
+        r.ref12.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref12.SetActive(true);
+        r.ref13.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref13.SetActive(false);
+        r.ref14.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref14.SetActive(true);
+        r.ref15.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref15.SetActive(false);
+        r.ref16.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref16.SetActive(true);
+        r.ref17.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref17.SetActive(false);
+        r.ref18.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref18.SetActive(true);
+        r.ref19.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref19.SetActive(false);
+        r.ref20.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref20.SetActive(true);
+        yield return new WaitForSeconds(1);
+        r.ref20.SetActive(false);
+        Choice.SetActive(true);
+    }
+
+
+
+
+
 }
