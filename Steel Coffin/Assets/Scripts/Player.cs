@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
 
     public AudioSource HideSound;
     public AudioSource Hide2Sound;
+    public AudioSource DeathSound;
 
 
     void Start()
@@ -173,7 +174,7 @@ public class Player : MonoBehaviour
             if (currentHideObject != null)
             {
                 
-                Vector3 offset = currentHideObject.transform.forward * 0f; 
+                Vector3 offset = currentHideObject.transform.forward * 0f; //units to appear in front of hide object
                 transform.position = currentHideObject.transform.position + offset;
             }
         }
@@ -218,6 +219,7 @@ public class Player : MonoBehaviour
     void Die()
     {
         Dead = true;
+        DeathSound.Play();
         Rib.linearVelocity = Vector3.zero;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
