@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
     public GameObject Choice;
     public GameObject C1;
     public GameObject C2;
+    public GameObject C3;
+    public GameObject C4;
 
     public TeleporterScript TS;
 
@@ -138,12 +140,16 @@ public class GameManager : MonoBehaviour
     public void C1A()
     {
         C1.SetActive(true);
+        C3.SetActive(false);
+        C4.SetActive(false);
     }
    
 
     public void C2A()
     {
         C2.SetActive(true);
+        C3.SetActive(false);
+        C4.SetActive(false);
     }
 
     public void PauseScreen()
