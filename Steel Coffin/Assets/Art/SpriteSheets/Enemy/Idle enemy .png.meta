@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3d880f3d3edc92144978e3251d76361e
+guid: 2ed5593151cdc91448000c5ac3f48475
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,11 +97,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Moving_0
+      name: Idle enemy _0
       rect:
         serializedVersion: 2
         x: 0
-        y: 200
+        y: 0
         width: 100
         height: 100
       alignment: 0
@@ -112,18 +112,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a7c28c367887ff479ad28dce53117a1
-      internalID: -1757581426
+      spriteID: 8b02970f11de2d540978abae6baa038f
+      internalID: -1923750057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Moving_1
+      name: Idle enemy _1
       rect:
         serializedVersion: 2
         x: 100
-        y: 200
+        y: 0
         width: 100
         height: 100
       alignment: 0
@@ -134,18 +134,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 501ef3eac8bb1b541905c8010ef8e2f5
-      internalID: -840192648
+      spriteID: a1607dc3a01f37f478a50d3a5f75926e
+      internalID: 625289094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Moving_2
+      name: Idle enemy _2
       rect:
         serializedVersion: 2
         x: 200
-        y: 200
+        y: 0
         width: 100
         height: 100
       alignment: 0
@@ -156,127 +156,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d01dbef841062740a14fb0bf2b07dd7
-      internalID: -1722346487
+      spriteID: a81e348a8afcdb84988052419924708e
+      internalID: 1829057334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Moving_3
+      name: Idle enemy _3
       rect:
         serializedVersion: 2
         x: 300
-        y: 200
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f6d5ae9eead36540882f76d2f1e2d52
-      internalID: -1087464708
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Moving_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d637e61e905bc7a46846c18a9e07f2f7
-      internalID: 691228711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Moving_5
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2f97199d89533649978db3d34031b58
-      internalID: -175432502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Moving_6
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76faa95078ce3ee4bac974197ebbd4aa
-      internalID: 1863654940
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Moving_7
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6bc0ac188d55dbb40a9b8f9bf54055b2
-      internalID: -549995543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Moving_8
-      rect:
-        serializedVersion: 2
-        x: 0
         y: 0
         width: 100
         height: 100
@@ -288,17 +178,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3fda7b94937a0543b2793800402a8c9
-      internalID: -613304472
+      spriteID: 6ded8ccf84cb22546b34a01e5cb48d37
+      internalID: 495633357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Moving_9
+      name: Idle enemy _4
       rect:
         serializedVersion: 2
-        x: 100
+        x: 400
         y: 0
         width: 100
         height: 100
@@ -310,17 +200,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3ab0d2e3430ac34598c0b3d417ced1e
-      internalID: 44723978
+      spriteID: 2fd631a5fd7e2f946b6aabb3bb831892
+      internalID: -1114567104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Moving_10
+      name: Idle enemy _5
       rect:
         serializedVersion: 2
-        x: 200
+        x: 500
         y: 0
         width: 100
         height: 100
@@ -332,8 +222,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cec1338822d4cff40bbb4f33d723e29f
-      internalID: -1023145469
+      spriteID: b077a5b069db7464cb97deffeff34d93
+      internalID: -1570818341
       vertices: []
       indices: 
       edges: []
@@ -342,7 +232,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cf58248e0f2bd12479e8f1062ce26048
+    spriteID: 55cdbedd8e1ec6241af3c197659654e0
     internalID: 0
     vertices: []
     indices: 
@@ -352,17 +242,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Moving_0: -1757581426
-      Moving_1: -840192648
-      Moving_10: -1023145469
-      Moving_2: -1722346487
-      Moving_3: -1087464708
-      Moving_4: 691228711
-      Moving_5: -175432502
-      Moving_6: 1863654940
-      Moving_7: -549995543
-      Moving_8: -613304472
-      Moving_9: 44723978
+      Idle enemy _0: -1923750057
+      Idle enemy _1: 625289094
+      Idle enemy _2: 1829057334
+      Idle enemy _3: 495633357
+      Idle enemy _4: -1114567104
+      Idle enemy _5: -1570818341
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
