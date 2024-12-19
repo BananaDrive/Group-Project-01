@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Audio;
 
 
 public class Player : MonoBehaviour
@@ -49,6 +50,9 @@ public class Player : MonoBehaviour
 
     GameManager Gm;
 
+    public AudioSource HideSound;
+    public AudioSource Hide2Sound;
+
 
     void Start()
     {
@@ -91,7 +95,18 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && canHide && currentHideObject != null)
         {
-            ToggleHide();
+            if (!Hidden)
+            {
+                ToggleHide();
+                HideSound.Play();
+            }
+            else
+            {
+                ToggleHide();
+                Hide2Sound.Play();
+            }
+            
+
         }
 
         // Sprint Mechanics
@@ -155,6 +170,12 @@ public class Player : MonoBehaviour
         {
             gameObject.layer = OGLayer;
             GetComponent<Renderer>().enabled = true;
+            if (currentHideObject != null)
+            {
+                
+                Vector3 offset = currentHideObject.transform.forward * -2.0f; 
+                transform.position = currentHideObject.transform.position + offset;
+            }
         }
     }
 

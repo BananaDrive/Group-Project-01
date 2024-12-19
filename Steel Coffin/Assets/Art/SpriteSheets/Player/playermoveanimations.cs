@@ -3,7 +3,7 @@ using UnityEngine;
 public class playermoveanimations : StateMachineBehaviour
 {
     private Rigidbody rb;     
-    private float walkThreshold = 0.001f; 
+    private float walkThreshold = 0f; 
     private bool isInitialized = false; 
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -32,10 +32,12 @@ public class playermoveanimations : StateMachineBehaviour
         if (rb == null) return;
 
        
-        float horizontalSpeed = Mathf.Abs(rb.linearVelocity.x);
+        float HSpeed = Mathf.Abs(rb.linearVelocity.x);
+        float VSpeed = Mathf.Abs(rb.linearVelocity.z);
 
-        
-        bool isWalking = horizontalSpeed > walkThreshold;
+
+        bool isWalking = (HSpeed > walkThreshold || VSpeed > walkThreshold);
+            
 
        
         animator.SetBool("IsWalking", isWalking);
