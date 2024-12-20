@@ -2189,7 +2189,6 @@ RectTransform:
   - {fileID: 500094375}
   - {fileID: 8144831789087386720}
   - {fileID: 6876350967258345053}
-  - {fileID: 367178758}
   - {fileID: 4218588792386801342}
   - {fileID: 8782643927530196971}
   - {fileID: 2323958066746638566}
@@ -6965,7 +6964,7 @@ MonoBehaviour:
   GM: {fileID: 622268259}
   fadeImage: {fileID: 3171451008732918151}
   fadeDuration: 1
-  Door: {fileID: 0}
+  Door: {fileID: 1457901180}
 --- !u!1 &1952873659
 GameObject:
   m_ObjectHideFlags: 0
@@ -9125,6 +9124,7 @@ RectTransform:
   - {fileID: 680701861}
   - {fileID: 935621729263393484}
   - {fileID: 677080161}
+  - {fileID: 367178758}
   m_Father: {fileID: 4717457911120545478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

@@ -2640,6 +2640,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 856023595c5ca3a479847e2017516414, type: 3}
   m_PrefabInstance: {fileID: 292548911}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &297819992 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 592679731251490195, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 6556640230500447078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &299587406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20244,6 +20255,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 592679731251490195, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+      propertyPath: m_text
+      value: 'after 5 years of exploring these old ruins. I''ve never heard of such
+        a place as haunted as this.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 592679731251490195, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+      propertyPath: m_margin.z
+      value: -164.23532
+      objectReference: {fileID: 0}
+    - target: {fileID: 789461900895111261, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 863132831300384919, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -20259,6 +20285,14 @@ PrefabInstance:
     - target: {fileID: 2388543920734891131, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3609118678039289226, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 143
+      objectReference: {fileID: 0}
+    - target: {fileID: 3609118678039289226, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 174
       objectReference: {fileID: 0}
     - target: {fileID: 4158902118659262567, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_IsActive
@@ -20314,7 +20348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5162439533504258685, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5971663306671035190, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -20484,8 +20518,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6198914376912365880, guid: feb04c056467f5e40a686664b915bd14, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7031976216211001950}
   m_SourcePrefab: {fileID: 100100000, guid: feb04c056467f5e40a686664b915bd14, type: 3}
+--- !u!1 &7031976216211001949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6198914376912365880, guid: feb04c056467f5e40a686664b915bd14, type: 3}
+  m_PrefabInstance: {fileID: 7031976216211001948}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7031976216211001950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031976216211001949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8581dbb3e79e7234db8a0cd5855489c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2
+  interactionKey: 101
+  interactionText: {fileID: 297819992}
+  player: {fileID: 5079958005753137490}
 --- !u!1001 &7176420365207963345
 PrefabInstance:
   m_ObjectHideFlags: 0
