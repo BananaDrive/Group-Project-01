@@ -93,7 +93,7 @@ public class PlayerInventory : MonoBehaviour
     {
         for (int i = 0; i < hotbarImages.Length; i++)
         {
-            hotbarImages[i].color = (i == currentSlot) ? Color.green : Color.white;
+            hotbarImages[i].color = (i == currentSlot) ? Color.white : Color.white;
         }
     }
 

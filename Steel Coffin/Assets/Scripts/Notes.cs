@@ -4,12 +4,12 @@ using TMPro;
 public class RadiusInteraction : MonoBehaviour
 {
     [Header("Settings")]
-    public float radius = 5f; // The radius around the object
-    public KeyCode interactionKey = KeyCode.E; // Key to activate interaction
+    public float radius = 5f; 
+    public KeyCode interactionKey = KeyCode.E; 
 
     [Header("References")]
-    public TextMeshProUGUI interactionText; // Reference to the TMP UI element
-    public Transform player; // Reference to the player
+    public TextMeshProUGUI interactionText; 
+    public Transform player; 
 
     private bool isPlayerInRange = false;
 
@@ -17,7 +17,7 @@ public class RadiusInteraction : MonoBehaviour
     {
         if (interactionText != null)
         {
-            interactionText.gameObject.SetActive(false); // Ensure the text is initially hidden
+            interactionText.gameObject.SetActive(false); 
         }
         else
         {
@@ -27,14 +27,14 @@ public class RadiusInteraction : MonoBehaviour
 
     private void Update()
     {
-        // Check the distance between the object and the player
+        
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         if (distanceToPlayer <= radius)
         {
             isPlayerInRange = true;
 
-            // Check if the interaction key is pressed
+            
             if (Input.GetKeyDown(interactionKey))
             {
                 interactionText.gameObject.SetActive(true);
@@ -45,7 +45,7 @@ public class RadiusInteraction : MonoBehaviour
             isPlayerInRange = false;
             if (interactionText != null && interactionText.gameObject.activeSelf)
             {
-                interactionText.gameObject.SetActive(false); // Hide the TMP text
+                interactionText.gameObject.SetActive(false); 
             }
         }
     }
