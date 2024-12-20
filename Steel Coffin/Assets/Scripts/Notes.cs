@@ -1,50 +1,54 @@
 using UnityEngine;
 using TMPro;
-using System.Collections;
 
-public class Notes : MonoBehaviour
+public class RadiusInteraction : MonoBehaviour
 {
-    [System.Serializable]
-    public class Note
-    {
-        public GameObject noteObject;
-        public GameObject noteText;
-        public float Range = 3f;
-        public float showTime = 5f;
-    }
-    
-    public List<Note> notes = new List<Note>();
-    public Transform player;
-    public AudioSource NoteAudio;
-    
+    [Header("Settings")]
+    public float radius = 5f; // The radius around the object
+    public KeyCode interactionKey = KeyCode.E; // Key to activate interaction
 
-    void Update()
+    [Header("References")]
+    public TextMeshProUGUI interactionText; // Reference to the TMP UI element
+    public Transform player; // Reference to the player
+
+    private bool isPlayerInRange = false;
+
+    private void Start()
     {
-        foreach (var note in notes)
+        if (interactionText != null)
         {
-            if (Input.GetKeyDown(KeyCode.E) && IsPlayerInRange(note))
+            interactionText.gameObject.SetActive(false); // Ensure the text is initially hidden
+        }
+        else
+        {
+            Debug.LogWarning("Interaction Text is not assigned!");
+        }
+    }
+
+    private void Update()
+    {
+        // Check the distance between the object and the player
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= radius)
+        {
+            isPlayerInRange = true;
+
+            // Check if the interaction key is pressed
+            if (Input.GetKeyDown(interactionKey))
             {
-                DisplayNoteMessage(note);
-                break;
+                interactionText.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            isPlayerInRange = false;
+            if (interactionText != null && interactionText.gameObject.activeSelf)
+            {
+                interactionText.gameObject.SetActive(false); // Hide the TMP text
             }
         }
     }
+
     
-    bool IsPlayerInRange(Note note)
-    {
-        return Vector3.Distance(player.position, note.noteObject.transform.position) <= note.Range;
-    }
-    
-    void DisplayNoteMessage(Note note)
-    {
-        note.noteText.SetActive(true);
-        NoteAudio.Play();
-        StartCoroutine(HideNoteMessage(note));
-    }
-    
-    private IEnumerator HideNoteMessage(Note note)
-    {
-        yield return new WaitForSeconds(note.showTime);
-        note.noteText.SetActive(false);
-    }
 }

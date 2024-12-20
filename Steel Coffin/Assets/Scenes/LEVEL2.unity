@@ -1697,6 +1697,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354448260}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &360769197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6198914376912365880, guid: feb04c056467f5e40a686664b915bd14, type: 3}
+  m_PrefabInstance: {fileID: 2007373528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &378207933
 GameObject:
   m_ObjectHideFlags: 0
@@ -4561,6 +4566,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80577bf784ced244db10653683633c66, type: 3}
+--- !u!114 &1029618387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 592679731251490195, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+  m_PrefabInstance: {fileID: 1294425155}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1038764306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5866,6 +5882,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 592679731251490195, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+      propertyPath: m_text
+      value: Firecrackers.  the boom is very loud. Throw them at Monsters
+      objectReference: {fileID: 0}
+    - target: {fileID: 592679731251490195, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+      propertyPath: m_margin.z
+      value: -15.380806
+      objectReference: {fileID: 0}
+    - target: {fileID: 789461900895111261, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 863132831300384919, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5889,6 +5917,14 @@ PrefabInstance:
     - target: {fileID: 2733975762403276001, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3609118678039289226, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 251
+      objectReference: {fileID: 0}
+    - target: {fileID: 3609118678039289226, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 159
       objectReference: {fileID: 0}
     - target: {fileID: 4158902118659262567, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_IsActive
@@ -5948,7 +5984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5162439533504258685, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5971663306671035190, guid: 91a81f788c48f6443974b51b11ff8da5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -6875,7 +6911,7 @@ MonoBehaviour:
   GM: {fileID: 336892880}
   fadeImage: {fileID: 1076307019}
   fadeDuration: 1
-  Door: {fileID: 0}
+  Door: {fileID: 179049574}
 --- !u!65 &1478879047
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9472,13 +9508,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 101125108351235266, guid: feb04c056467f5e40a686664b915bd14, type: 3}
       insertIndex: -1
       addedObject: {fileID: 378207934}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6198914376912365880, guid: feb04c056467f5e40a686664b915bd14, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2007373532}
   m_SourcePrefab: {fileID: 100100000, guid: feb04c056467f5e40a686664b915bd14, type: 3}
 --- !u!224 &2007373529 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 101125108351235266, guid: feb04c056467f5e40a686664b915bd14, type: 3}
   m_PrefabInstance: {fileID: 2007373528}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2007373532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360769197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8581dbb3e79e7234db8a0cd5855489c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2
+  interactionKey: 101
+  interactionText: {fileID: 1029618387}
+  player: {fileID: 2001654937}
 --- !u!1 &2007916725
 GameObject:
   m_ObjectHideFlags: 0
@@ -9805,7 +9860,7 @@ MonoBehaviour:
   player: {fileID: 2001654937}
   activateText: {fileID: 1294425157}
   GM: {fileID: 336892880}
-  Door: {fileID: 0}
+  Door: {fileID: 179049574}
 --- !u!1001 &9146489704879758534
 PrefabInstance:
   m_ObjectHideFlags: 0
