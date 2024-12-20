@@ -4,49 +4,47 @@ using System.Collections;
 
 public class Notes : MonoBehaviour
 {
-    //NOTES
-    public GameObject Note1;
-    public GameObject Note2;
-    public GameObject Note3;
-    public Transform Player;
-    public float NoteRange1 = 3;
-    public float NoteRange2 = 3;
-    public float NoteRange3 = 3;
-
-    public float NoteTimer1 = 1;
-    public float NoteTimer2 = 5;
-    public float NoteTimer3 = 5;
-
-    public GameObject NoteText1;
-    public GameObject NoteText2;
-    public GameObject NoteText3;
-
-    public Transform player;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [System.Serializable]
+    public class Note
     {
-        
+        public GameObject noteObject;
+        public GameObject noteText;
+        public float Range = 3f;
+        public float showTime = 5f;
     }
+    
+    public List<Note> notes = new List<Note>();
+    public Transform player;
+    public AudioSource NoteAudio;
+    
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && Vector3.Distance(player.position, transform.position) <= NoteRange1)
+        foreach (var note in notes)
         {
-            NoteText1.SetActive(true);
-
-           // StartCoroutine(NoteTime1);
+            if (Input.GetKeyDown(KeyCode.E) && IsPlayerInRange(note))
+            {
+                DisplayNoteMessage(note);
+                break;
+            }
         }
     }
-
-
-
-
-
-
-    //private IEnumerator NoteTime1()
-   // {
-       // yield return new WaitForSeconds(throwrate);
-       // isthrowing = false;
-    //}
+    
+    bool IsPlayerInRange(Note note)
+    {
+        return Vector3.Distance(player.position, note.noteObject.transform.position) <= note.Range;
+    }
+    
+    void DisplayNoteMessage(Note note)
+    {
+        note.noteText.SetActive(true);
+        NoteAudio.Play();
+        StartCoroutine(HideNoteMessage(note));
+    }
+    
+    private IEnumerator HideNoteMessage(Note note)
+    {
+        yield return new WaitForSeconds(note.showTime);
+        note.noteText.SetActive(false);
+    }
 }
