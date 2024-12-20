@@ -23,6 +23,7 @@ public class Distractorscript : MonoBehaviour
 
     public AudioSource Cracker;
 
+    
     private void Start()
     {
 #pragma warning disable CS0618 
@@ -56,6 +57,8 @@ public class Distractorscript : MonoBehaviour
         }
 
         AmountHeld.text = "Cracklers: " + currentdistract + "/" + maxdistract;
+
+    
     }
 
     private void ThrowGrenadeL()
