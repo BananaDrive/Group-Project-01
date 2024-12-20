@@ -9,6 +9,7 @@ public class TPScenes : MonoBehaviour
     public TextMeshProUGUI activateText;
     private PlayerInventory playerInventory;
     public GameManager GM;
+    public AudioSource Door;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class TPScenes : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && playerInventory.keyPickup)
             {
+                Door.Play();
                 GM.LoadNextLevel();
             }
         }

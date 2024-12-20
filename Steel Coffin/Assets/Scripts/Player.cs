@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 {
     public Rigidbody Rib;
     public float walk, jump;
+    public float walkThreshold = 0;
 
     private Vector2 input;
 
@@ -48,11 +49,13 @@ public class Player : MonoBehaviour
 
     private bool isFacingRight = true;
 
-    GameManager Gm;
+    private GameManager Gm;
+    public bool IsPaused = false;
 
     public AudioSource HideSound;
     public AudioSource Hide2Sound;
     public AudioSource DeathSound;
+    public AudioSource Walking;
 
 
     void Start()
@@ -73,6 +76,31 @@ public class Player : MonoBehaviour
     {
         if (Dead)
             return;
+        
+        if (Rib == null) return;
+
+        
+        float HSpeed = Mathf.Abs(Rib.linearVelocity.x);
+        float VSpeed = Mathf.Abs(Rib.linearVelocity.z);
+
+       
+        bool isWalking = (HSpeed > walkThreshold || VSpeed > walkThreshold);
+
+        
+        if (isWalking)
+        {
+            if (!Walking.isPlaying) 
+            {
+                Walking.Play();
+            }
+        }
+        else
+        {
+            if (Walking.isPlaying) 
+            {
+                Walking.Stop();
+            }
+        }
 
         if (!Hidden)
         {

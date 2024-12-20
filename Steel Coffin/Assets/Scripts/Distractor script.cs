@@ -21,6 +21,8 @@ public class Distractorscript : MonoBehaviour
     public bool distracttriggered = false;
     GameManager Gm;
 
+    public AudioSource Cracker;
+
     private void Start()
     {
 #pragma warning disable CS0618 
@@ -42,6 +44,7 @@ public class Distractorscript : MonoBehaviour
             distracttriggered = true;
             ThrowGrenadeL();
             isthrowing = true;
+            Cracker.Play();
         }
 
         if (Input.GetMouseButtonDown(1) && currentdistract > 0 && !isthrowing)
@@ -49,6 +52,7 @@ public class Distractorscript : MonoBehaviour
             distracttriggered = true;
             ThrowGrenadeR();
             isthrowing = true;
+            Cracker.Play();
         }
 
         AmountHeld.text = "Cracklers: " + currentdistract + "/" + maxdistract;

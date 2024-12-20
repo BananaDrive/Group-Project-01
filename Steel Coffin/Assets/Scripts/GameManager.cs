@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject Settings;
     public bool SettingsOpen = false;
 
-    public Refforendanimate r;
+    
 
 
     //NOTES
@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
     public GameObject R1;
 
     public TeleporterScript TS;
+
+   
 
     void Start()
     {
@@ -111,6 +113,7 @@ public class GameManager : MonoBehaviour
                 Paused();
             }
         }
+
         
     }
 
@@ -138,7 +141,7 @@ public class GameManager : MonoBehaviour
 
     public void Completed()
     {
-        StartCoroutine(EndAni());
+        //End Animation Play
     }
 
     public void C1A()
@@ -179,6 +182,8 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(int sceneID)
     {
         SceneManager.LoadScene(sceneID);
+        IsPaused = false;
+        Time.timeScale = 1;
     }
 
     public void Restart()
@@ -234,74 +239,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public IEnumerator EndAni()
-    {
-        R1.SetActive(true);
-
-        r.ref1.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref1.SetActive(false);
-        r.ref2.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref2.SetActive(true);
-        r.ref3.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref3.SetActive(false);
-        r.ref4.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref4.SetActive(true);
-        r.ref5.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref5.SetActive(false);
-        r.ref6.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref6.SetActive(true);
-        r.ref7.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref7.SetActive(false);
-        r.ref8.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref8.SetActive(true);
-        r.ref9.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref9.SetActive(false);
-        r.ref10.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref10.SetActive(true);
-        r.ref11.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref11.SetActive(false);
-        r.ref12.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref12.SetActive(true);
-        r.ref13.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref13.SetActive(false);
-        r.ref14.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref14.SetActive(true);
-        r.ref15.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref15.SetActive(false);
-        r.ref16.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref16.SetActive(true);
-        r.ref17.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref17.SetActive(false);
-        r.ref18.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref18.SetActive(true);
-        r.ref19.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref19.SetActive(false);
-        r.ref20.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref20.SetActive(true);
-        yield return new WaitForSeconds(1);
-        r.ref20.SetActive(false);
-        Choice.SetActive(true);
-    }
+    
 
 
 

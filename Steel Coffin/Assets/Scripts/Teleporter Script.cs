@@ -18,6 +18,8 @@ public class TeleporterScript : MonoBehaviour
     public Image fadeImage;
     public float fadeDuration = 1f;
 
+    public AudioSource Door;
+
     void Start()
     {
 
@@ -55,6 +57,7 @@ public class TeleporterScript : MonoBehaviour
                 {
                     GM.Completed();
                 }
+                Door.Play();
 
                     StartCoroutine(FadeOut());
 

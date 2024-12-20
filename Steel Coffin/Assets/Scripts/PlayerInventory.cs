@@ -13,9 +13,12 @@ public class PlayerInventory : MonoBehaviour
     public TextMeshProUGUI pickupMessage;
     public int currentSlot = 0;
     public bool keyPickup = false;
+    public AudioSource Keys;
+    public GameManager Gm;
 
     void Start()
     {
+        Gm = gameObject.GetComponent<GameManager>();
         hotbarKeys = new KeyCode[3] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3 };
 
         inventory = new List<GameObject>(new GameObject[3]);
@@ -51,6 +54,7 @@ public class PlayerInventory : MonoBehaviour
 
                         AddToInventory(item);
                         CheckForKeys();
+                        Keys.Play();
                     }
                 }
             }
