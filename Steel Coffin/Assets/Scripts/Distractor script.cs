@@ -23,13 +23,7 @@ public class Distractorscript : MonoBehaviour
 
     public AudioSource Cracker;
 
-    public Transform RefillBox;
-    public GameObject CrackerStuff;
-    public GameObject CrackerStuff2;
-    public GameObject CrackerStuff3;
-    public int RefillAmt = 2;
-    public float RefillRange = 3;
-
+    
     private void Start()
     {
 #pragma warning disable CS0618 
@@ -64,16 +58,7 @@ public class Distractorscript : MonoBehaviour
 
         AmountHeld.text = "Cracklers: " + currentdistract + "/" + maxdistract;
 
-        if (Vector3.Distance(RefillBox.transform.position, transform.position) <= RefillRange)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                currentdistract += RefillAmt;
-                Destroy(CrackerStuff);
-                Destroy(CrackerStuff2);
-                Destroy(CrackerStuff3);
-            }
-        }
+    
     }
 
     private void ThrowGrenadeL()
